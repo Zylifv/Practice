@@ -1,3 +1,5 @@
+//A lab around scoring students based on their overall grades and returning the result.
+
 let score = "";
 function getAverage(array) {
   return array.reduce((a,b) => a + b) / array.length;
