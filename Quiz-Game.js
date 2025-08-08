@@ -60,6 +60,3 @@ function getResults(questionObject, computerChoice) {
 }
 
 console.log(`The computer chose: ${randComputerChoice}`, getResults(randQuestion, randComputerChoice));
-
-console.log(window.innerWidth);
-console.log(window.innerHeight);
