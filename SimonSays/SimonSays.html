@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="squirdle.css" rel="stylesheet">
+    <title>Simon says JS</title>
+  </head>
+    <body>
+      <div id="wrapper">
+       <div id="sequence">Follow the numbers and once they disappear, click the buttons below in the same order to advance!</div>
+         <p id="currLevel"></p>
+          <div id="start_game">Click start to begin:</div>
+          <button id="start" onclick="startGame()">Click to start</button>
+          <div id="game_sequence"></div>
+          <div id="main">
+            <button class="btn" id="button_1" value="1">1</button>
+            <button class="btn" id="button_2" value="2">2</button>
+            <button class="btn" id="button_3" value="3">3</button>
+            <button class="btn" id="button_4" value="4">4</button>
+            <button class="btn" id="button_5" value="5">5</button>
+          </div>
+            <button id="check" type="button" onclick="winOrLose()">Check</button>
+        <div id="sig">- By R McGregor</div>
+       </div>
+      
+  <script src="script.js"></script>
+  </body>
