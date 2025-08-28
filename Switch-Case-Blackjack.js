@@ -75,9 +75,8 @@ function AssignCardValues(x) {
         default:
           break;
       }
-  
-      currPlayerHand <= 11 ? currPlayerHand = val : currComputerHand = val;
-  }
+   }
+  currPlayerHand < 4 ? currPlayerHand = val : currComputerHand = val;
 }
 
 AssignCardValues(playerHand);
