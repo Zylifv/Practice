@@ -162,5 +162,3 @@
             }
             return "You Win!";
         }
-		return "You Win!";
-	}
