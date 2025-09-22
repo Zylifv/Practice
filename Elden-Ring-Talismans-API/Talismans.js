@@ -3,7 +3,7 @@ const list = document.getElementById("list");
 
 function getData() {
   
-  fetch("https://eldenring.fanapis.com/api/talismans", {
+  fetch("https://eldenring.fanapis.com/api/talismans?limit=100", {
     
   }).then(res => res.json())
   .then(talismans => {
