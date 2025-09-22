@@ -1,6 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="squirdle.css" rel="stylesheet">
+    <title>Elden Ring Talismans API</title>
+  </head>
+    <body>
+      <a id="sig">- By R McGregor</a>
 <body>
   <img src="https://www.pngmart.com/files/23/Elden-Ring-Logo-PNG-Photo.png" alt="elden ring logo" id="logo" width="600px"/>
   <h1>Talismans</h1>
-<div id="display"></div>
+  <input id="talisman_input"
+         input type="search"
+         placeholder="Search for a specific Talisman here"
+         oninput="datalistMatch(event)"
+         />
+  <div id="myList"></div>
+<div id="talismans_display"></div>
   <script src="script.js"></script>
 </body>
