@@ -7,7 +7,7 @@ string SnakeCaseToCamelCase(string value)
 			string? firstLetter;
 			string[] temp = value.Split("_");
 			
-			if (value.Length == 0)
+			if (value.Length <= 0)
 				return "";
 			else if (value.Length == 1)
 				return value.ToLower();
@@ -15,7 +15,7 @@ string SnakeCaseToCamelCase(string value)
 			{
 				foreach (var el in temp)
 				{
-					result += el.Substring(0,1).ToUpper() + el.Substring(1, el.Length - 1);
+					result += el.Substring(0,1).ToUpper() + el.Substring(1, el.Length - 1).ToLower();
 				}
 					firstLetter = result.Substring(0,1).ToLower();
 					result = firstLetter + result.Substring(1, result.Length - 1);
@@ -24,3 +24,4 @@ string SnakeCaseToCamelCase(string value)
 		}
 		
 		Console.WriteLine(SnakeCaseToCamelCase("please_print_hello_world"));
+		Console.WriteLine(SnakeCaseToCamelCase("PLEASE_PRINT_HELLO_WORLD"));
