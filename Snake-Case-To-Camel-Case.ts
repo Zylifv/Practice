@@ -7,7 +7,7 @@ function snakeCaseToCamelCase(value : string) {
   const temp = value.split("_");
   
   for (const el of temp) {
-    arr.push(el.charAt(0).toUpperCase() + el.slice(1));
+    arr.push(el.charAt(0).toUpperCase() + el.slice(1).toLowerCase());
   }
   for (let i = 0; i < arr.length; i++) {
     result += arr[i];
@@ -15,4 +15,5 @@ function snakeCaseToCamelCase(value : string) {
   return result.charAt(0).toLowerCase() + result.slice(1).toString();
 }
 
-snakeCaseToCamelCase("hello_world_with_types");
+console.log(snakeCaseToCamelCase("hello_world_with_types"));
+console.log(snakeCaseToCamelCase("HELLO_WORLD_WITH_TYPES"));
