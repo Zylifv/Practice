@@ -140,6 +140,12 @@
             {
                 return false;
             }
+            else if (readResult != "s" || readResult != "t")
+            {
+                Console.WriteLine("Please enter a valid option.");
+                Console.WriteLine("Do you wish to stick or twist? (S/T)");
+                readResult = Console.ReadLine().ToLower();
+            }
             return false;
         }
 
