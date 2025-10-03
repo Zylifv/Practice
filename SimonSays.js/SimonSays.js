@@ -7,6 +7,7 @@ const button5 = document.getElementById("button_5");
 const buttons = document.getElementsByClassName("btn");
 const startBtn = document.getElementById("start");
 let currLevelInfo = document.getElementById("currLevel");
+const userResult = document.getElementById("user-result");
 let currLevel = 1;
 let index = 0;
 let delay = "";
@@ -38,17 +39,19 @@ function getRandSequence() {
 }
 
 function displayCurrNums() {
-    if (index < currLevelSequence.length) {
-      gameSequence.textContent = `${index+1}: ` + currLevelSequence[index];
-      index++;
-    } else {
-      gameSequence.textContent = "";
+  if (index < currLevelSequence.length) {
+    gameSequence.textContent = `${index+1}: ` + currLevelSequence[index];
+    index++;
+  } else {
+    gameSequence.textContent = "";
   }
 }
 
 function startGame() {
   if (startGameBool == false)
     {
+      userResult.textContent = "";
+      userResult.style.color = "#004445";
       startBtn.textContent = "Next level";
       startBtn.disabled = true;
       startBtn.style.opacity = "0.5";
@@ -67,6 +70,7 @@ let buttonClick = function() {
   userNumSequence.push(Number(val));
   gameSequence.textContent = val;
   console.log(userNumSequence);
+  userResult.textContent += val;
 }
 
 for (let i = 0; i < buttons.length; i++) {
@@ -85,11 +89,13 @@ function winOrLose() {
   if (winCondition == currLevelSequence.length)
     {
       gameSequence.textContent = "You Win!";
-      currLevel++; 
+      userResult.style.color = "#33a366";
+      currLevel++;
     }
   else
     {
       gameSequence.textContent = "You lose...";
+      userResult.style.color = "#e8401c";
       currLevel = 1;
       startBtn.textContent = "Click to start";
     }
