@@ -30,6 +30,13 @@ body {
   padding-bottom: 50px;
 }
 
+h2 {
+  margin: auto;
+  padding-top: 30px;
+  font-size: 2em;
+  text-align: center;
+}
+
 #main {
   margin: auto;
   position: relative;
