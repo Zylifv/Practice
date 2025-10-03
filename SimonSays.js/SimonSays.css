@@ -98,6 +98,20 @@ body {
   line-height: 30px;
 }
 
+#user-result {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: -45px;
+  font-size: 2em;
+  letter-spacing: 0.6em;
+  color: #004445;
+}
+
 #sig {
   margin: auto;
   color: #f2f2f2;
