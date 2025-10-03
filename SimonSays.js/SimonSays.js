@@ -17,26 +17,33 @@ let userNumSequence = [];
 let startGameBool = false;
 let gameSequence = document.getElementById("game_sequence");
 
+
 function getRandSequence() {
+  let n = 0;
   let arrLevelLength = Number(currLevel) + 4;
    do {
+     n++;
      currLevelSequence.push(array[Math.floor(Math.random() * (array.length))])
      console.log(currLevelSequence);
      for (let i = 0; i < currLevelSequence.length; i++)
        {
-          if (currLevelSequence[i+1] === currLevelSequence[i])
-          {
-              currLevelSequence[i+1] = 5 ? currLevelSequence[i+1] = 1 : currLevelSequence[i+1] - 1;
-          }
-       }  
+           if (currLevelSequence[i+1] === currLevelSequence[i])
+             {
+                currLevelSequence[i+1] = 5 ? currLevelSequence[i+1] = 1 : currLevelSequence[i+1] - 1;
+             }
+       }
     } while (currLevelSequence.length < (currLevel + 3));
-  
+  console.log(currLevelSequence);
   return currLevelSequence;
 }
 
 function displayCurrNums() {
-    gameSequence.textContent = currLevelSequence[index];
-    index++;
+    if (index < currLevelSequence.length) {
+      gameSequence.textContent = `${index+1}: ` + currLevelSequence[index];
+      index++;
+    } else {
+      gameSequence.textContent = "";
+  }
 }
 
 function startGame() {
@@ -47,9 +54,7 @@ function startGame() {
       startBtn.style.opacity = "0.5";
       currLevelInfo.textContent = `Current Level: ${currLevel}`;
       document.getElementById("check").disabled = false;
-      
       getRandSequence();
-      
       myInterval = setInterval(displayCurrNums, 1500);
       startGameBool == true;
       userNumSequence.length = 0;
@@ -61,24 +66,28 @@ let buttonClick = function() {
   let val = this.getAttribute("value");
   userNumSequence.push(Number(val));
   gameSequence.textContent = val;
+  console.log(userNumSequence);
 }
 
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", buttonClick);
 }
 
+
 function winOrLose() {
   let winCondition = 0;
   for (let i = 0; i < currLevelSequence.length; i++)
     {
-       userNumSequence[i] === currLevelSequence[i] ? winCondition++ : "";
+    userNumSequence[i] === currLevelSequence[i] ? winCondition++ : "";
+      
+      //console.log(winCondition, currLevelSequence.length);
     }
-    if (winCondition == currLevelSequence.length)
+  if (winCondition == currLevelSequence.length)
     {
-       gameSequence.textContent = "You Win!";
-       currLevel++; 
+      gameSequence.textContent = "You Win!";
+      currLevel++; 
     }
-    else
+  else
     {
       gameSequence.textContent = "You lose...";
       currLevel = 1;
