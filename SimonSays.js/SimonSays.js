@@ -12,6 +12,7 @@ let currLevel = 1;
 let index = 0;
 let delay = "";
 let myInterval;
+let entry = false;
 let currInterval = false;
 let currLevelSequence = [];
 let userNumSequence = [];
@@ -38,6 +39,10 @@ function getRandSequence() {
   return currLevelSequence;
 }
 
+function entryCheck() {
+  entry = index !== currLevelSequence.length ? false : true;  
+}
+
 function displayCurrNums() {
   if (index < currLevelSequence.length) {
     gameSequence.textContent = `${index+1}: ` + currLevelSequence[index];
@@ -45,11 +50,13 @@ function displayCurrNums() {
   } else {
     gameSequence.textContent = "";
   }
+  entryCheck();
 }
 
 function startGame() {
   if (startGameBool == false)
     {
+      entry = false;
       userResult.textContent = "";
       userResult.style.color = "#004445";
       startBtn.textContent = "Next level";
@@ -66,11 +73,13 @@ function startGame() {
 }
 
 let buttonClick = function() {
-  let val = this.getAttribute("value");
-  userNumSequence.push(Number(val));
-  gameSequence.textContent = val;
-  console.log(userNumSequence);
-  userResult.textContent += val;
+  if (entry) {
+    let val = this.getAttribute("value");
+    userNumSequence.push(Number(val));
+    gameSequence.textContent = val;
+    console.log(userNumSequence);
+    userResult.textContent += val;
+  }
 }
 
 for (let i = 0; i < buttons.length; i++) {
