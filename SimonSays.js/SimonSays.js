@@ -44,12 +44,14 @@ function entryCheck() {
 }
 
 function displayCurrNums() {
-  if (index < currLevelSequence.length) {
-    gameSequence.textContent = `${index+1}: ` + currLevelSequence[index];
-    index++;
-  } else {
-    gameSequence.textContent = "";
-  }
+  let i = index + 1;
+  let array = ["/", "-", "\\", "|"];
+    if (index < currLevelSequence.length) {
+      gameSequence.textContent = `${array[ i % array.length]}: ` + currLevelSequence[index];
+      index++;
+    } else {
+      gameSequence.textContent = "";
+    }
   entryCheck();
 }
 
