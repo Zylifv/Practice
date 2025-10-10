@@ -11,6 +11,7 @@ const userResult = document.getElementById("user-result");
 let currLevel = 1;
 let index = 0;
 let delay = "";
+let count = 0;
 let myInterval;
 let entry = false;
 let currInterval = false;
@@ -66,6 +67,7 @@ function startGame() {
       startBtn.style.opacity = "0.5";
       currLevelInfo.textContent = `Current Level: ${currLevel}`;
       document.getElementById("check").disabled = false;
+      count = 0;
       getRandSequence();
       myInterval = setInterval(displayCurrNums, 1500);
       startGameBool == true;
@@ -76,9 +78,11 @@ function startGame() {
 
 let buttonClick = function() {
   if (entry) {
+    count++;
+    console.log(count)
     let val = this.getAttribute("value");
     userNumSequence.push(Number(val));
-    gameSequence.textContent = val;
+    //gameSequence.textContent = val;
     console.log(userNumSequence);
     userResult.textContent += val;
   }
@@ -90,14 +94,14 @@ for (let i = 0; i < buttons.length; i++) {
 
 
 function winOrLose() {
-  let winCondition = 0;
+  let winCondition = false;
   for (let i = 0; i < currLevelSequence.length; i++)
     {
-    userNumSequence[i] === currLevelSequence[i] ? winCondition++ : "";
+    userNumSequence[i] === currLevelSequence[i] ? winCondition = true : winCondition = false;
       
       //console.log(winCondition, currLevelSequence.length);
     }
-  if (winCondition == currLevelSequence.length)
+  if (winCondition && count <= currLevelSequence.length)
     {
       gameSequence.textContent = "You Win!";
       userResult.style.color = "#33a366";
@@ -118,4 +122,5 @@ function winOrLose() {
     index = 0;
     startBtn.disabled = false;
     startBtn.style.opacity = "1.0";
+    count = 0;
 }
