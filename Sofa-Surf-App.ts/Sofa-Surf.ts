@@ -2,7 +2,9 @@ const myBasket = document.getElementById("basket");
 const currentBasket = document.getElementById("current-basket");
 currentBasket.style.display = "none";
 
-console.log(window.innerWidth);
+document.getElementById("form-submit").addEventListener("click", (e) => {
+   e.preventDefault()
+});
 
 const properties : {
   image : string;
