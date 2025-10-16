@@ -1,0 +1,244 @@
+@import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
+
+@media only screen and (max-width: 767px) {
+  #property-page, #contact-us, #current-basket {
+    transform: scale(0.9);
+  }
+}
+
+:root {
+  --white: #fbfbfb;
+  --dark-grey: #424548;
+  --gold: #fcbf49;
+}
+
+body {
+  background-color: var(--white);
+  font-family: 'Libre Baskerville';
+}
+
+#wrap {
+  margin: auto;
+  max-width: 450px;
+  position: relative;
+  align-items: center;
+}
+
+h1 {
+ padding-top: 60px;
+}
+
+h1, h2, h3, #contact, #reviews, #current-bookings {
+  color: var(--dark-grey);
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  margin: 5px;
+  margin-bottom: 15px;
+}
+
+#reviews {
+  font-size: 0.9em;
+}
+
+h3, #current-bookings {
+  letter-spacing: 2.5px;
+}
+
+#current-bookings {
+  color: var(--dark-grey);
+  text-align: center;
+  justify-content: center;
+  margin: 5px;
+  margin-top: 50px;
+}
+
+.nav-bar {
+  margin-top: 20px;
+  background-color: var(--white);
+  width: 100vw;
+}
+
+nav {
+  position: fixed;
+  display: flex;
+  align-items: right;
+  left: -8px;
+  padding-right: 10px;
+  top: 0px;
+  height: 60px;
+  width: inherit;
+  z-index: 5;
+  background-color: var(--white);
+  text-align: center;
+  font-weight: bold;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.nav-bar a:hover, a, a:visited, a:focus, a:active {
+  color: var(--dark-grey);
+  padding: 20px 20px 20px 20px;
+  text-decoration: none;
+}
+
+.nav-bar a:hover {
+  background-color: var(--gold);
+  color: #fbfbfb;
+  text-shadow: 1px 0 0 #9c9c9c, 0 -1px 0 #9c9c9c, 0 1px 0 #9c9c9c, -1px 0 0 #9c9c9c;
+}
+
+.property-cards {
+  color: var(--dark-grey);
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  margin: 15px;
+  background-color: var(--white);
+  box-shadow: #969696 0px 5px 12px;
+  border: 8px solid #fbfbfb;
+  border-radius: 10px;
+}
+
+.property-cards > p {
+  line-height: 0.2em;
+  font-size: 0.85em;
+  margin-top: 25px;
+}
+
+.property-cards > img {
+  transition: all 0.5s ease-in-out;
+}
+
+.property-cards > img:hover {
+  transform: scale(1.03);
+  transition: transform .5s;
+}
+
+.add-btn, .btn {
+  margin: auto;
+  font-family: 'Libre Baskerville';
+  background-color: var(--gold);
+  border: none;
+  border-radius: 5px;
+  width: 140px;
+  height: 40px;
+  line-height: 20px;
+  font-size: 0.9em;
+  color: var(--dark-grey);
+}
+
+.add-btn span {
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.add-btn:hover, .btn:hover {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.add-btn:active {
+  transform: scale(0.97);
+}
+
+.add-btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  right: -10px;
+  transition: 0.5s;
+}
+
+.add-btn:hover span {
+  padding-right: 15px;
+}
+
+.add-btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#property-page {
+  margin: auto;
+  padding: auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+}
+
+#current-basket {
+  z-index: 5;
+  text-align: center;
+  position: fixed;
+  top: 60px;
+  -webkit-backface-visibility: hidden;
+  margin: auto;
+  background-color: var(--white);
+  height: 260px;
+  margin-bottom: 50px;
+  width: 450px;
+  max-width: 450px;
+  box-shadow: #969696 0px 5px 12px;
+  border-radius: 0% 0% 7% 7%;
+}
+
+#contact-us {
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding-top: 40px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  max-width: 500px;
+}
+
+#contact-text {
+  margin: auto;
+  font-size: 1.0em;
+  width: 450px;
+  padding-bottom: 30px;
+}
+
+#contact-info {
+  margin: auto;
+  align-items: center;
+}
+
+#contact-form {
+  margin: auto;
+  padding-top: 30px;
+  width: 80%;
+  max-width: 800px;
+  height: 370px;
+  border: 5px solid var(--white);
+  border-radius: 8px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#f-name, #l-name, #email, #subject {
+  display: flex;
+  position: relative;
+  margin: auto;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  align-items: center;
+  width: 350px;
+  border: 2px solid var(--dark-grey);
+  border-radius: 2px;
+}
+
+#f-name:focus, #l-name:focus, #email:focus, #subject:focus {
+  outline: none;
+}
+
+#subject {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  width: 350px;
+  height: 100px;
+  resize: none;
+}
