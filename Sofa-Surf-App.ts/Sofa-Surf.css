@@ -1,9 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
 
-@media only screen and (max-width: 767px) {
-  #property-page, #contact-us, #current-basket {
-    transform: scale(0.9);
-  }
+@media only screen and (max-width: 600px) {
+  /*not used right now*/
 }
 
 :root {
@@ -19,7 +17,7 @@ body {
 
 #wrap {
   margin: auto;
-  max-width: 450px;
+  max-width: 400px;
   position: relative;
   align-items: center;
 }
@@ -97,6 +95,7 @@ nav {
   box-shadow: #969696 0px 5px 12px;
   border: 8px solid #fbfbfb;
   border-radius: 10px;
+  width: 370px;
 }
 
 .property-cards > p {
@@ -164,7 +163,7 @@ nav {
   display: grid;
   justify-content: center;
   align-items: center;
-  max-width: 500px;
+  max-width: 400px;
 }
 
 #current-basket {
@@ -177,8 +176,8 @@ nav {
   background-color: var(--white);
   height: 260px;
   margin-bottom: 50px;
-  width: 450px;
-  max-width: 450px;
+  width: 400px;
+  max-width: 400px;
   box-shadow: #969696 0px 5px 12px;
   border-radius: 0% 0% 7% 7%;
 }
@@ -192,13 +191,13 @@ nav {
   padding-top: 40px;
   margin-top: 20px;
   margin-bottom: 50px;
-  max-width: 500px;
+  max-width: 400px;
 }
 
 #contact-text {
   margin: auto;
-  font-size: 1.0em;
-  width: 450px;
+  font-size: 0.9em;
+  width: 400px;
   padding-bottom: 30px;
 }
 
@@ -211,7 +210,7 @@ nav {
   margin: auto;
   padding-top: 30px;
   width: 80%;
-  max-width: 800px;
+  max-width: 400px;
   height: 370px;
   border: 5px solid var(--white);
   border-radius: 8px;
@@ -225,7 +224,7 @@ nav {
   margin-top: 2px;
   margin-bottom: 2px;
   align-items: center;
-  width: 350px;
+  width: 300px;
   border: 2px solid var(--dark-grey);
   border-radius: 2px;
 }
@@ -238,7 +237,14 @@ nav {
   display: flex;
   margin: auto;
   align-items: center;
-  width: 350px;
+  width: 300px;
   height: 100px;
   resize: none;
+}
+
+#our-number, #our-email {
+  font-size: 1em;
+  margin-bottom: 25px;
+  line-height: 24px;
+  letter-spacing: 1.2px;
 }
