@@ -1,39 +1,8 @@
-let myBasket = document.getElementById("basket");
-let currentBasket = document.getElementById("current-basket");
+const myBasket = document.getElementById("basket");
+const currentBasket = document.getElementById("current-basket");
 currentBasket.style.display = "none";
-const reviewsTotalDisplay = document.getElementById("reviews");
-const reviews : {
-  name : string;
-  stars : boolean;
-  loyaltyUser : boolean;
-  date : string;
-  
-} = [
-    {
-        name: 'Sheia',
-        stars: 5,
-        loyaltyUser: true,
-        date: '01-04-2021'
-    },
-    {
-        name: 'Andrzej',
-        stars: 4,
-        loyaltyUser: false,
-        date: '28-03-2021'
-    },
-    {
-        name: 'Leon',
-        stars: 4.2,
-        loyaltyUser: false,
-        date: '28-03-2023'
-    },
-    {
-        name: 'Omar',
-        stars: 4.6,
-        loyaltyUser: true,
-        date: '27-03-2021'
-    },
-]
+
+console.log(window.innerWidth);
 
 const properties : {
   image : string;
@@ -89,11 +58,47 @@ const properties : {
     }
 ];
 
+console.log(properties[1].location?.firstLine);
+
+const reviewsTotalDisplay = document.getElementById("reviews");
+
+const reviews : {
+  name : string;
+  stars : boolean;
+  loyaltyUser : boolean;
+  date : string;
+  
+} = [
+    {
+        name: 'Sheia',
+        stars: 5,
+        loyaltyUser: true,
+        date: '01-04-2021'
+    },
+    {
+        name: 'Andrzej',
+        stars: 4,
+        loyaltyUser: false,
+        date: '28-03-2021'
+    },
+    {
+        name: 'Leon',
+        stars: 4.2,
+        loyaltyUser: false,
+        date: '28-03-2023'
+    },
+    {
+        name: 'Omar',
+        stars: 4.6,
+        loyaltyUser: true,
+        date: '27-03-2021'
+    },
+]
 
 function numOfReviews(value : number, reviewer : string, stars : number, loyalty : boolean) {
-  const loyaltyCheck = loyalty ? "⭐ - Loyal user" : "";
+  const loyaltyCheck = loyalty ? "⭐ - Verified user" : "";
   reviewsTotalDisplay.innerHTML = "Reviews: " + value.toString() + " | Last reviewed by: " + reviewer;
-  reviewsTotalDisplay.innerHTML += `<br> ${reviewer} rated ${stars} stars! ${loyaltyCheck}`
+  reviewsTotalDisplay.innerHTML += `<br> ${reviewer} rated ${stars} stars!  | ${loyaltyCheck}`
 }
 
   for (let i = 0; i < reviews.length; i++) {
@@ -123,15 +128,15 @@ const propertyDisplay = document.getElementById("property-page");
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div');
     const button = document.createElement('button');
-    card.setAttribute("class", "property-cards");
-    card.classList.add('card')
-    card.innerHTML = `<h3>${properties[i].title}</h3>`
-    const image = document.createElement('img')
-    image.setAttribute('src', properties[i].image)
-    image.setAttribute("width", "400px");
-    card.appendChild(image);
-    propertyDisplay.appendChild(card)
-    card.innerHTML += `
+    const image = document.createElement('img');
+        card.setAttribute("class", "property-cards");
+        card.classList.add('card')
+        card.innerHTML = `<h3>${properties[i].title}</h3>`
+        image.setAttribute('src', properties[i].image)
+        image.setAttribute("width", "365px");
+        card.appendChild(image);
+        propertyDisplay.appendChild(card)
+        card.innerHTML += `
     <p id="price">Price Per Night: £-${properties[i].price}</p>
     <button id=${properties[i].location.code} class="add-btn"><span>Find out more</span></button>
     <p id="availability">Availability: ${properties[i].isAvailable == false ? "No" : "Yes"}</p>
@@ -142,4 +147,4 @@ const allBtns = document.querySelectorAll(".add-btn");
 
 allBtns.forEach((el) => {
   console.log(`${el.id}`);
-})
+});
