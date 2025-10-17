@@ -98,15 +98,21 @@ const reviews : {
 ]
 
 function numOfReviews(value : number, reviewer : string, stars : number, loyalty : boolean) {
-  const loyaltyCheck = loyalty ? "⭐ - Verified user" : "";
-  reviewsTotalDisplay.innerHTML = "Reviews: " + value.toString() + " | Last reviewed by: " + reviewer;
-  reviewsTotalDisplay.innerHTML += `<br> ${reviewer} rated ${stars} stars!  | ${loyaltyCheck}`
+  
+   const loyaltyCheck = loyalty ? " | ⭐ - Verified user" : "";
+   reviewsTotalDisplay.innerHTML = "Reviews: " + value.toString() + " | Last reviewed by: " + reviewer;
+   reviewsTotalDisplay.innerHTML += `<br> ${reviewer} rated ${stars} stars! ${loyaltyCheck}`
 }
 
-  for (let i = 0; i < reviews.length; i++) {
-    setInterval(
-  numOfReviews(reviews.length, reviews[i % reviews.length].name, reviews[i % reviews.length].stars, reviews[i % reviews.length].loyaltyUser), 1500);
-  }
+numOfReviews(reviews.length, reviews[reviews.length - 2].name, reviews[reviews.length - 2].stars, reviews[reviews.length - 2].loyaltyUser);
+
+for (let i = 0; i < reviews.length; i++) {
+  setInterval(function() {
+      numOfReviews(reviews.length, reviews[i].name, reviews[i].stars, reviews[i].loyaltyUser);
+      i++;
+      i %= reviews.length;
+    }, 8500);    
+}
 
 myBasket.addEventListener("click", () => {
   if (currentBasket.style.display === "none") {
