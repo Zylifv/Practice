@@ -1,9 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
 
-@media only screen and (max-width: 767px) {
-  /*NOT CURRENTLY USED*/
-}
-
 :root {
   --white: #fbfbfb;
   --dark-grey: #424548;
@@ -39,6 +35,44 @@ h1, h2, h3, #contact, #reviews, #current-bookings {
 #reviews {
   font-size: 0.9em;
   animation: 1.5s 1 slide-in;
+}
+
+#current-location {
+  z-index: 10;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: 0.7em;
+  padding: 5px;
+  bottom: 10px;
+  width: 385px;
+  color: var(--dark-grey);
+  background-color: var(--white);
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  height: 50px;
+  text-align: center;
+  line-height: 15px;
+}
+
+#hide-curr-location {
+  margin: auto;
+  position: fixed;
+  display: flex;
+  bottom: 45px;
+  margin-left: 366px;
+  z-index: 20;
+  border-radius: 5px;
+  max-width: 25px;
+  width: 25px;
+  max-height: 22px;
+  height: 22px;
+  background: var(--dark-grey);
+  color: var(--white);
+  font-size: 0.9em;
+  text-align: center;
 }
 
 @keyframes slide-in {
