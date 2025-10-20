@@ -18,16 +18,17 @@
       </nav>
       
     <h1><u>Sofa-Surfing Shop</u></h1>
+        <button id="hide-curr-location" onclick="toggleLocationData()">X</button>
+        <div id="current-location"></div>
       <div id="property-page">
         <div id="current-basket">
           <div id="current-bookings">Your current bookings: </div>
         </div>
         <div id="reviews"></div>
         <h2>Properties recommended to you:</h2>
-        
       </div>
         </div>
-        
+       
         <section id="contact-us">
           <h2>Contact</h2>
           <div class="contact-info">
@@ -47,7 +48,7 @@
               <label for="subject"><b>Booking information:</b></label>
               <textarea id="subject" name="subject" maxlength="150"></textarea>
               <br><br>
-              <button type="submit" value="submit" class="btn"><b>Submit</b></button>
+              <button type="submit" value="submit" class="btn" id="form-submit"><b>Submit</b></button>
             </form>
           </div>
         </section> 
