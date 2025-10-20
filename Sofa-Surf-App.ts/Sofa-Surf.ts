@@ -1,6 +1,12 @@
 const myBasket = document.getElementById("basket");
 const currentBasket = document.getElementById("current-basket");
+const currentLocation = document.getElementById("current-location");
+const hideLocationBtn = document.getElementById("hide-curr-location");
+const time = new Date().toLocaleTimeString();
+
 currentBasket.style.display = "none";
+
+console.log(window.innerWidth);
 
 document.getElementById("form-submit").addEventListener("click", (e) => {
    e.preventDefault()
@@ -16,8 +22,9 @@ const properties : {
     code : (string | number);
     country : string;
   }
-  contact : string;
+  contact : [number, string];
   isAvailable : boolean;
+  array : string[];
 }[] = [
     {
       image: "https://media.istockphoto.com/id/471826199/photo/french-brittany-typical-house.jpg?s=612x612&w=0&k=20&c=Izy6Ms8WytO21jJ2gtuUlylIDl38TMgZYcFZTncFAcM=",
@@ -29,7 +36,7 @@ const properties : {
         code: "LW13AB",
         country: "England"
       },
-      contact: "BobDylan@email.com",
+      contact: [675849, "Cottages.getaway@email.com"],
       isAvailable: true,
     },
     {
@@ -42,7 +49,7 @@ const properties : {
         code: "RG31YZ",
         country: "England"
       },
-      contact: "LilyPettingsworth@email.com",
+      contact: [394857, "LilyPettingsworth@email.com"],
       isAvailable: false,
     },
     {
@@ -55,51 +62,63 @@ const properties : {
         code: "LW39EZ",
         country: "England"
       },
-      contact: "CityScapesLondon@email.com",
+      contact: [291658, "CityScapesLondon@email.com"],
       isAvailable: true,
     }
 ];
 
-console.log(properties[1].location?.firstLine);
+console.log(properties[0].array);
 
 const reviewsTotalDisplay = document.getElementById("reviews");
+
+enum UserLoyaltyLevel {
+  GOLD_USER,
+  SILVER_USER,
+  BRONZE_USER
+} 
 
 const reviews : {
   name : string;
   stars : boolean;
-  loyaltyUser : boolean;
+  loyaltyUser : UserLoyaltyLevel;
   date : string;
   
 } = [
     {
         name: 'Sheia',
         stars: 5,
-        loyaltyUser: true,
+        loyaltyUser: UserLoyaltyLevel.GOLD_USER,
         date: '01-04-2021'
     },
     {
         name: 'Andrzej',
         stars: 4,
-        loyaltyUser: false,
+        loyaltyUser: UserLoyaltyLevel.BRONZE_USER,
         date: '28-03-2021'
     },
     {
-        name: 'Leon',
+        name: 'Omar',
         stars: 4.2,
-        loyaltyUser: false,
+        loyaltyUser: UserLoyaltyLevel.SILVER_USER,
         date: '28-03-2023'
     },
     {
-        name: 'Omar',
+        name: 'Nikita',
         stars: 4.6,
-        loyaltyUser: true,
+        loyaltyUser: UserLoyaltyLevel.GOLD_USER,
         date: '27-03-2021'
+    },
+  {
+        name: 'Ottilie',
+        stars: 4.9,
+        loyaltyUser: UserLoyaltyLevel.GOLD_USER,
+        date: '23-06-2024'
     },
 ]
 
-function numOfReviews(value : number, reviewer : string, stars : number, loyalty : boolean) {
+function numOfReviews(value : number, reviewer : string, stars : number, loyalty : UserLoyaltyLevel) {
   
-   const loyaltyCheck = loyalty ? " | ⭐ - Verified user" : "";
+   const loyaltyCheck = loyalty == UserLoyaltyLevel.GOLD_USER ? " | ⭐ - Verified user" : "";
    reviewsTotalDisplay.innerHTML = "Reviews: " + value.toString() + " | Last reviewed by: " + reviewer;
    reviewsTotalDisplay.innerHTML += `<br> ${reviewer} rated ${stars} stars! ${loyaltyCheck}`
 }
@@ -113,6 +132,8 @@ for (let i = 0; i < reviews.length; i++) {
       i %= reviews.length;
     }, 8500);    
 }
+
+
 
 myBasket.addEventListener("click", () => {
   if (currentBasket.style.display === "none") {
@@ -148,7 +169,7 @@ for (let i = 0; i < properties.length; i++) {
     <p id="price">Price Per Night: £-${properties[i].price}</p>
     <button id=${properties[i].location.code} class="add-btn"><span>Find out more</span></button>
     <p id="availability">Availability: ${properties[i].isAvailable == false ? "No" : "Yes"}</p>
-    <p id="contact">Contact: ${properties[i].contact}</p>`
+    <p id="contact">Contact: +${properties[i].contact[0]} or ${properties[i].contact[1]}</p>`
 }
 
 const allBtns = document.querySelectorAll(".add-btn");
@@ -156,3 +177,25 @@ const allBtns = document.querySelectorAll(".add-btn");
 allBtns.forEach((el) => {
   console.log(`${el.id}`);
 });
+
+
+//TUPLE//
+const currLocationData : [string, string, number] = ["London", `${time}`, 17];
+
+currentLocation.innerHTML += `Current location - ${currLocationData[0]}<br>
+Time: ${Number(currLocationData[1].substring(0, 2)) > 12 ? currLocationData[1] + " PM" : currLocationData[1] + " AM"}<br>
+Current Temperature in ${currLocationData[0]}: ${currLocationData[2]}°C`
+
+
+function toggleLocationData() {
+  let x = document.getElementById("current-location");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    hideLocationBtn.textContent = "X";
+    hideLocationBtn.style.fontSize = "0.9em";
+  } else {
+    x.style.display = "none";
+    hideLocationBtn.textContent = "^";
+    hideLocationBtn.style.fontSize = "1.2em";
+  } 
+}
