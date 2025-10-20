@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
 
-@media only screen and (max-width: 600px) {
-  /*not used right now*/
+@media only screen and (max-width: 767px) {
+  /*NOT CURRENTLY USED*/
 }
 
 :root {
@@ -13,6 +13,7 @@
 body {
   background-color: var(--white);
   font-family: 'Libre Baskerville';
+  overflowY: hidden;
 }
 
 #wrap {
@@ -37,6 +38,13 @@ h1, h2, h3, #contact, #reviews, #current-bookings {
 
 #reviews {
   font-size: 0.9em;
+  animation: 1.5s 1 slide-in;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-100vh);
+  }
 }
 
 h3, #current-bookings {
@@ -231,6 +239,7 @@ nav {
 
 #f-name:focus, #l-name:focus, #email:focus, #subject:focus {
   outline: none;
+  border: 2px solid var(--gold);
 }
 
 #subject {
@@ -252,3 +261,4 @@ nav {
   line-height: 24px;
   letter-spacing: 1.2px;
 }
+
