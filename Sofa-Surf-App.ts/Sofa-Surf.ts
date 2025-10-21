@@ -79,7 +79,7 @@ enum UserLoyaltyLevel {
 
 const reviews : {
   name : string;
-  stars : boolean;
+  stars : number;
   loyaltyUser : UserLoyaltyLevel;
   date : string;
   
