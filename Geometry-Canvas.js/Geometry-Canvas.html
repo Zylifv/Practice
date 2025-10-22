@@ -1,27 +1,39 @@
-<h3>Choose a size: </h3>
-
-<div id="slider-container">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link href="styles.css" rel="stylesheet">
+    <title>Geometry</title>
+  </head>
+    <body>
+      <div id="wrap">
+      <h1>Create your cube</h1>
+        <div id="slider-container">
+        <p id="value-input-x">Current x size (px): 150</p>
+          <input type="range"
+                min="10"
+                max="250"
+                value="150"
+                id="slider-x" 
+                class="slider"/>
   
-  <br>
-    <p id="value-input-x">Current x size (px): 150</p>
-    <p id="value-input-y">Current y size (px): 150</p>
-    <p id="value-input-z">Current z size (px): 150</p>
-  <br>
-    <input type="range"
-         min="50"
-         max="250"
-         value="150"
-         id="slider-x" />
+        <p id="value-input-y">Current y size (px): 150</p>
+          <input type="range"
+                min="50"
+                max="250"
+                value="150"
+                id="slider-y"
+                class="slider"/>
   
-    <input type="range"
-         min="50"
-         max="250"
-         value="150"
-         id="slider-y" />
-  
-    <input type="range"
-         min="50"
-         max="250"
-         value="150"
-         id="slider-z" />
-</div>
+        <p id="value-input-z">Current z size (px): 150</p>
+          <input type="range"
+                min="50"
+                max="250"
+                value="150"
+                id="slider-z"
+                class="slider"/>
+        </div>
+      </div>
+      <script src="script.js"></script>
+    <body>
+</html>
