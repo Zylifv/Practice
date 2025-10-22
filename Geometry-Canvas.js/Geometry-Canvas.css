@@ -1,0 +1,23 @@
+.canvas-board {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  left: 700px;
+}
+
+h3, #value-input-x, #value-input-y, #value-input-z {
+  margin: auto;
+  text-align: center;
+}
+
+#slider-container {
+  margin: auto;
+  align-items: center;
+}
+
+#slider-x, #slider-y, #slider-z {
+  margin: auto;
+  display: flex;
+}
