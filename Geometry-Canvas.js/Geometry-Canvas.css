@@ -1,3 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Arimo);
+
+body {
+  font-family: 'Arimo';
+}
+
+#wrap {
+  margin: auto;
+  display: grid;
+  max-width: 400px;
+  justify-content: center;
+  align-items: center;
+}
+
 .canvas-board {
   margin: auto;
   display: flex;
@@ -7,9 +21,14 @@
   left: 700px;
 }
 
-h3, #value-input-x, #value-input-y, #value-input-z {
+h1, #value-input-x, #value-input-y, #value-input-z {
   margin: auto;
   text-align: center;
+  margin-bottom: 5px;
+}
+
+h1 {
+  margin-bottom: 40px;
 }
 
 #slider-container {
@@ -20,4 +39,36 @@ h3, #value-input-x, #value-input-y, #value-input-z {
 #slider-x, #slider-y, #slider-z {
   margin: auto;
   display: flex;
+  border-radius: 1px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 400px;
+  height: 20px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #04AA6D;
+  cursor: pointer;
 }
