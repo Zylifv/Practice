@@ -9,14 +9,13 @@ var canvas = document.createElement("canvas");
 function draw() {
   
   canvas.setAttribute("class", "canvas-board")
-  canvas.setAttribute("width", 500);
-  canvas.setAttribute("height", 500);
+  canvas.setAttribute("width", 510);
+  canvas.setAttribute("height", 510);
   canvas.setAttribute("style", "position: absolute; x:0; y:0;");
   document.body.appendChild(canvas);
 }
 
 draw();
-
 
 var ctx = canvas.getContext("2d");
 sliderX.oninput = function drawCube(x, y, z) {
@@ -28,14 +27,14 @@ sliderX.oninput = function drawCube(x, y, z) {
   currValX.textContent = `Current x size (px): ${x}`;
   currValY.textContent = `Current y size (px): ${y}`;
   currValZ.textContent = `Current z size (px): ${z}`;
-    ctx.clearRect(0, 0, 500, 500);
+    ctx.clearRect(0, 0, 510, 510);
+    ctx.lineWidth = 5;
     ctx.strokeRect(x,x,y,z);
     ctx.strokeStyle = '#000'
     ctx.beginPath();
     ctx.moveTo(x,x)
     ctx.stroke();
     ctx.fill();
-  
 }
 
 sliderY.oninput = function drawCube(x, y, z) {
@@ -47,7 +46,7 @@ sliderY.oninput = function drawCube(x, y, z) {
   currValX.textContent = `Current x size (px): ${x}`;
   currValY.textContent = `Current y size (px): ${y}`;
   currValZ.textContent = `Current z size (px): ${z}`;
-    ctx.clearRect(0, 0, 500, 500);
+    ctx.clearRect(0, 0, 510, 510);
     ctx.strokeRect(x,x,y,z);
     ctx.strokeStyle = 'blue'
     ctx.beginPath();
@@ -65,7 +64,7 @@ sliderZ.oninput = function drawCube(x, y, z) {
   currValX.textContent = `Current x size (px): ${x}`;
   currValY.textContent = `Current y size (px): ${y}`;
   currValZ.textContent = `Current z size (px): ${z}`;
-    ctx.clearRect(0, 0, 500, 500);
+    ctx.clearRect(0, 0, 510, 510);
     ctx.strokeRect(x,x,y,z);
     ctx.strokeStyle = 'green'
     ctx.beginPath();
