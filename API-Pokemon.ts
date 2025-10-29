@@ -1766,5 +1766,950 @@ const pokemon : {
     height: 0.6,
     weight: 5.0,
     generation: 2
+  },
+  {
+    name: "Treecko",
+    types: ["Grass", "None"],
+    height: 0.5,
+    weight: 5.0,
+    generation: 3
+  },
+  {
+    name: "Grovyle",
+    types: ["Grass", "None"],
+    height: 0.9,
+    weight: 21.6,
+    generation: 3
+  },
+  {
+    name: "Sceptile",
+    types: ["Grass", "None"],
+    height: 1.7,
+    weight: 52.2,
+    generation: 3
+  },
+  {
+    name: "Torchic",
+    types: ["Fire", "None"],
+    height: 0.4,
+    weight: 2.5,
+    generation: 3
+  },
+  {
+    name: "Combusken",
+    types: ["Fire", "Fighting"],
+    height: 0.9,
+    weight: 19.5,
+    generation: 3
+  },
+  {
+    name: "Blaziken",
+    types: ["Fire", "Fighting"],
+    height: 1.9,
+    weight: 52.0,
+    generation: 3
+  },
+  {
+    name: "Mudkip",
+    types: ["Water", "None"],
+    height: 0.4,
+    weight: 7.6,
+    generation: 3
+  },
+  {
+    name: "Marshtomp",
+    types: ["Water", "Ground"],
+    height: 0.7,
+    weight: 28.0,
+    generation: 3
+  },
+  {
+    name: "Swampert",
+    types: ["Water", "Ground"],
+    height: 1.5,
+    weight: 81.9,
+    generation: 3
+  },
+  {
+    name: "Poochyena",
+    types: ["Dark", "None"],
+    height: 0.5,
+    weight: 13.6,
+    generation: 3
+  },
+  {
+    name: "Mightyena",
+    types: ["Dark", "None"],
+    height: 1.0,
+    weight: 37.0,
+    generation: 3
+  },
+  {
+    name: "Zigzagoon",
+    types: ["Normal", "None"],
+    height: 0.4,
+    weight: 17.5,
+    generation: 3
+  },
+  {
+    name: "Linoone",
+    types: ["Normal", "None"],
+    height: 0.5,
+    weight: 32.5,
+    generation: 3
+  },
+  {
+    name: "Wurmple",
+    types: ["Bug", "None"],
+    height: 0.3,
+    weight: 3.6,
+    generation: 3
+  },
+  {
+    name: "Silcoon",
+    types: ["Bug", "None"],
+    height: 0.6,
+    weight: 10.0,
+    generation: 3
+  },
+  {
+    name: "Beautifly",
+    types: ["Bug", "Flying"],
+    height: 1.0,
+    weight: 28.4,
+    generation: 3
+  },
+  {
+    name: "Cascoon",
+    types: ["Bug", "None"],
+    height: 0.7,
+    weight: 11.5,
+    generation: 3
+  },
+  {
+    name: "Dustox",
+    types: ["Bug", "Poison"],
+    height: 1.2,
+    weight: 31.6,
+    generation: 3
+  },
+  {
+    name: "Lotad",
+    types: ["Water", "Grass"],
+    height: 0.5,
+    weight: 2.6,
+    generation: 3
+  },
+  {
+    name: "Lombre",
+    types: ["Water", "Grass"],
+    height: 1.2,
+    weight: 32.5,
+    generation: 3
+  },
+  {
+    name: "Ludicolo",
+    types: ["Water", "Grass"],
+    height: 1.5,
+    weight: 55.0,
+    generation: 3
+  },
+  {
+    name: "Seedot",
+    types: ["Grass", "None"],
+    height: 0.5,
+    weight: 4.0,
+    generation: 3
+  },
+  {
+    name: "Nuzleaf",
+    types: ["Grass", "Dark"],
+    height: 1.0,
+    weight: 28.0,
+    generation: 3
+  },
+  {
+    name: "Shiftry",
+    types: ["Grass", "Dark"],
+    height: 1.3,
+    weight: 59.6,
+    generation: 3
+  },
+  {
+    name: "Taillow",
+    types: ["Normal", "Flying"],
+    height: 0.3,
+    weight: 2.3,
+    generation: 3
+  },
+  {
+    name: "Swellow",
+    types: ["Normal", "Flying"],
+    height: 0.7,
+    weight: 19.8,
+    generation: 3
+  },
+  {
+    name: "Wingull",
+    types: ["Water", "Flying"],
+    height: 0.6,
+    weight: 9.5,
+    generation: 3
+  },
+  {
+    name: "Pelipper",
+    types: ["Water", "Flying"],
+    height: 1.2,
+    weight: 28.0,
+    generation: 3
+  },
+  {
+    name: "Ralts",
+    types: ["Psychic", "Fairy"],
+    height: 0.4,
+    weight: 6.6,
+    generation: 3
+  },
+  {
+    name: "Kirlia",
+    types: ["Psychic", "Fairy"],
+    height: 0.8,
+    weight: 20.2,
+    generation: 3
+  },
+  {
+    name: "Gardevoir",
+    types: ["Psychic", "Fairy"],
+    height: 1.6,
+    weight: 48.4,
+    generation: 3
+  },
+  {
+    name: "Surskit",
+    types: ["Bug", "Water"],
+    height: 0.5,
+    weight: 1.7,
+    generation: 3
+  },
+  {
+    name: "Masquerain",
+    types: ["Bug", "Flying"],
+    height: 0.8,
+    weight: 3.6,
+    generation: 3
+  },
+  {
+    name: "Shroomish",
+    types: ["Grass", "None"],
+    height: 0.4,
+    weight: 4.5,
+    generation: 3
+  },
+  {
+    name: "Breloom",
+    types: ["Grass", "Fighting"],
+    height: 1.2,
+    weight: 39.2,
+    generation: 3
+  },
+  {
+    name: "Slakoth",
+    types: ["Normal", "None"],
+    height: 0.8,
+    weight: 24.0,
+    generation: 3
+  },
+  {
+    name: "Vigoroth",
+    types: ["Normal", "None"],
+    height: 1.4,
+    weight: 46.5,
+    generation: 3
+  },
+  {
+    name: "Slaking",
+    types: ["Normal", "None"],
+    height: 2.0,
+    weight: 130.5,
+    generation: 3
+  },
+  {
+    name: "Nincada",
+    types: ["Bug", "Ground"],
+    height: 0.5,
+    weight: 5.5,
+    generation: 3
+  },
+  {
+    name: "Ninjask",
+    types: ["Bug", "Flying"],
+    height: 0.8,
+    weight: 12.0,
+    generation: 3
+  },
+  {
+    name: "Shedinja",
+    types: ["Bug", "Ghost"],
+    height: 0.8,
+    weight: 1.2,
+    generation: 3
+  },
+  {
+    name: "Whismur",
+    types: ["Normal", "None"],
+    height: 0.6,
+    weight: 16.3,
+    generation: 3
+  },
+  {
+    name: "Loudred",
+    types: ["Normal", "None"],
+    height: 1.0,
+    weight: 40.5,
+    generation: 3
+  },
+  {
+    name: "Exploud",
+    types: ["Normal", "None"],
+    height: 1.5,
+    weight: 84.0,
+    generation: 3
+  },
+  {
+    name: "Makuhita",
+    types: ["Fighting", "None"],
+    height: 1.0,
+    weight: 86.4,
+    generation: 3
+  },
+  {
+    name: "Hariyama",
+    types: ["Fighting", "None"],
+    height: 2.3,
+    weight: 253.8,
+    generation: 3
+  },
+  {
+    name: "Azurill",
+    types: ["Normal", "Fairy"],
+    height: 0.2,
+    weight: 2.0,
+    generation: 3
+  },
+  {
+    name: "Nosepass",
+    types: ["Rock", "None"],
+    height: 1.0,
+    weight: 97.0,
+    generation: 3
+  },
+  {
+    name: "Skitty",
+    types: ["Normal", "None"],
+    height: 0.6,
+    weight: 11.0,
+    generation: 3
+  },
+  {
+    name: "Delcatty",
+    types: ["Normal", "None"],
+    height: 1.1,
+    weight: 32.6,
+    generation: 3
+  },
+  {
+    name: "Sableye",
+    types: ["Dark", "Ghost"],
+    height: 0.5,
+    weight: 11.0,
+    generation: 3
+  },
+  {
+    name: "Mawile",
+    types: ["Steel", "Fairy"],
+    height: 0.6,
+    weight: 11.5,
+    generation: 3
+  },
+  {
+    name: "Aron",
+    types: ["Steel", "Rock"],
+    height: 0.4,
+    weight: 60.0,
+    generation: 3
+  },
+  {
+    name: "Lairon",
+    types: ["Steel", "Rock"],
+    height: 0.9,
+    weight: 120.0,
+    generation: 3
+  },
+  {
+    name: "Aggron",
+    types: ["Steel", "Rock"],
+    height: 2.1,
+    weight: 360.0,
+    generation: 3
+  },
+  {
+    name: "Meditite",
+    types: ["Fighting", "Psychic"],
+    height: 0.6,
+    weight: 11.2,
+    generation: 3
+  },
+  {
+    name: "Medicham",
+    types: ["Fighting", "Psychic"],
+    height: 1.3,
+    weight: 31.5,
+    generation: 3
+  },
+  {
+    name: "Electrike",
+    types: ["Electric", "None"],
+    height: 0.6,
+    weight: 15.2,
+    generation: 3
+  },
+  {
+    name: "Manectric",
+    types: ["Electric", "None"],
+    height: 1.5,
+    weight: 40.2,
+    generation: 3
+  },
+  {
+    name: "Plusle",
+    types: ["Electric", "None"],
+    height: 0.4,
+    weight: 4.2,
+    generation: 3
+  },
+  {
+    name: "Minun",
+    types: ["Electric", "None"],
+    height: 0.4,
+    weight: 4.2,
+    generation: 3
+  },
+  {
+    name: "Volbeat",
+    types: ["Bug", "None"],
+    height: 0.7,
+    weight: 17.7,
+    generation: 3
+  },
+  {
+    name: "Illumise",
+    types: ["Bug", "None"],
+    height: 0.6,
+    weight: 17.7,
+    generation: 3
+  },
+  {
+    name: "Roselia",
+    types: ["Grass", "Poison"],
+    height: 0.3,
+    weight: 2.0,
+    generation: 3
+  },
+  {
+    name: "Gulpin",
+    types: ["Poison", "None"],
+    height: 0.4,
+    weight: 10.3,
+    generation: 3
+  },
+  {
+    name: "Swalot",
+    types: ["Poison", "None"],
+    height: 1.7,
+    weight: 80.0,
+    generation: 3
+  },
+  {
+    name: "Carvanha",
+    types: ["Water", "Dark"],
+    height: 0.8,
+    weight: 20.8,
+    generation: 3
+  },
+  {
+    name: "Sharpedo",
+    types: ["Water", "Dark"],
+    height: 1.8,
+    weight: 88.8,
+    generation: 3
+  },
+  {
+    name: "Wailmer",
+    types: ["Water", "None"],
+    height: 2.0,
+    weight: 130.0,
+    generation: 3
+  },
+  {
+    name: "Wailord",
+    types: ["Water", "None"],
+    height: 14.5,
+    weight: 398.0,
+    generation: 3
+  },
+  {
+    name: "Numel",
+    types: ["Fire", "Ground"],
+    height: 0.7,
+    weight: 24.0,
+    generation: 3
+  },
+  {
+    name: "Camerupt",
+    types: ["Fire", "Ground"],
+    height: 1.9,
+    weight: 220.0,
+    generation: 3
+  },
+  {
+    name: "Torkoal",
+    types: ["Fire", "None"],
+    height: 0.5,
+    weight: 80.4,
+    generation: 3
+  },
+  {
+    name: "Spoink",
+    types: ["Psychic", "None"],
+    height: 0.7,
+    weight: 30.6,
+    generation: 3
+  },
+  {
+    name: "Grumpig",
+    types: ["Psychic", "None"],
+    height: 0.9,
+    weight: 71.5,
+    generation: 3
+  },
+  {
+    name: "Spinda",
+    types: ["Normal", "None"],
+    height: 1.1,
+    weight: 5.0,
+    generation: 3
+  },
+  {
+    name: "Trapinch",
+    types: ["Ground", "None"],
+    height: 0.7,
+    weight: 15.0,
+    generation: 3
+  },
+  {
+    name: "Vibrava",
+    types: ["Ground", "Dragon"],
+    height: 1.1,
+    weight: 15.3,
+    generation: 3
+  },
+  {
+    name: "Flygon",
+    types: ["Ground", "Dragon"],
+    height: 2.0,
+    weight: 82.0,
+    generation: 3
+  },
+  {
+    name: "Cacnea",
+    types: ["Grass", "None"],
+    height: 0.4,
+    weight: 51.3,
+    generation: 3
+  },
+  {
+    name: "Cacturne",
+    types: ["Grass", "Dark"],
+    height: 1.3,
+    weight: 77.4,
+    generation: 3
+  },
+  {
+    name: "Swablu",
+    types: ["Normal", "Flying"],
+    height: 0.4,
+    weight: 1.2,
+    generation: 3
+  },
+  {
+    name: "Altaria",
+    types: ["Dragon", "Flying"],
+    height: 1.1,
+    weight: 20.6,
+    generation: 3
+  },
+  {
+    name: "Zangoose",
+    types: ["Normal", "None"],
+    height: 1.3,
+    weight: 40.3,
+    generation: 3
+  },
+  {
+    name: "Seviper",
+    types: ["Poison", "None"],
+    height: 2.7,
+    weight: 52.5,
+    generation: 3
+  },
+  {
+    name: "Lunatone",
+    types: ["Rock", "Psychic"],
+    height: 1.0,
+    weight: 168.0,
+    generation: 3
+  },
+  {
+    name: "Solrock",
+    types: ["Rock", "Psychic"],
+    height: 1.2,
+    weight: 154.0,
+    generation: 3
+  },
+  {
+    name: "Barboach",
+    types: ["Water", "Ground"],
+    height: 0.4,
+    weight: 1.9,
+    generation: 3
+  },
+  {
+    name: "Whiscash",
+    types: ["Water", "Ground"],
+    height: 0.9,
+    weight: 23.6,
+    generation: 3
+  },
+  {
+    name: "Corphish",
+    types: ["Water", "None"],
+    height: 0.6,
+    weight: 11.5,
+    generation: 3
+  },
+  {
+    name: "Crawdaunt",
+    types: ["Water", "Dark"],
+    height: 1.1,
+    weight: 32.8,
+    generation: 3
+  },
+  {
+    name: "Baltoy",
+    types: ["Ground", "Psychic"],
+    height: 0.5,
+    weight: 21.5,
+    generation: 3
+  },
+  {
+    name: "Claydol",
+    types: ["Ground", "Psychic"],
+    height: 1.5,
+    weight: 108.0,
+    generation: 3
+  },
+  {
+    name: "Lileep",
+    types: ["Rock", "Grass"],
+    height: 1.0,
+    weight: 23.8,
+    generation: 3
+  },
+  {
+    name: "Cradily",
+    types: ["Rock", "Grass"],
+    height: 1.5,
+    weight: 60.4,
+    generation: 3
+  },
+  {
+    name: "Anorith",
+    types: ["Rock", "Bug"],
+    height: 0.7,
+    weight: 12.5,
+    generation: 3
+  },
+  {
+    name: "Armaldo",
+    types: ["Rock", "Bug"],
+    height: 1.5,
+    weight: 68.2,
+    generation: 3
+  },
+  {
+    name: "Feebas",
+    types: ["Water", "None"],
+    height: 0.6,
+    weight: 7.4,
+    generation: 3
+  },
+  {
+    name: "Milotic",
+    types: ["Water", "None"],
+    height: 6.2,
+    weight: 162.0,
+    generation: 3
+  },
+  {
+    name: "Castform",
+    types: ["Normal", "None"],
+    height: 0.3,
+    weight: 0.8,
+    generation: 3
+  },
+  {
+    name: "Kecleon",
+    types: ["Normal", "None"],
+    height: 1.0,
+    weight: 22.0,
+    generation: 3
+  },
+  {
+    name: "Shuppet",
+    types: ["Ghost", "None"],
+    height: 0.6,
+    weight: 2.3,
+    generation: 3
+  },
+  {
+    name: "Banette",
+    types: ["Ghost", "None"],
+    height: 1.1,
+    weight: 12.5,
+    generation: 3
+  },
+  {
+    name: "Duskull",
+    types: ["Ghost", "None"],
+    height: 0.8,
+    weight: 15.0,
+    generation: 3
+  },
+  {
+    name: "Dusclops",
+    types: ["Ghost", "None"],
+    height: 1.6,
+    weight: 30.6,
+    generation: 3
+  },
+  {
+    name: "Tropius",
+    types: ["Grass", "Flying"],
+    height: 2.0,
+    weight: 100.0,
+    generation: 3
+  },
+  {
+    name: "Chimecho",
+    types: ["Psychic", "None"],
+    height: 0.6,
+    weight: 1.0,
+    generation: 3
+  },
+  {
+    name: "Absol",
+    types: ["Dark", "None"],
+    height: 1.2,
+    weight: 47.0,
+    generation: 3
+  },
+  {
+    name: "Wynaut",
+    types: ["Psychic", "None"],
+    height: 0.6,
+    weight: 14.0,
+    generation: 3
+  },
+  {
+    name: "Snorunt",
+    types: ["Ice", "None"],
+    height: 0.7,
+    weight: 16.8,
+    generation: 3
+  },
+  {
+    name: "Glalie",
+    types: ["Ice", "None"],
+    height: 1.5,
+    weight: 256.5,
+    generation: 3
+  },
+  {
+    name: "Spheal",
+    types: ["Ice", "Water"],
+    height: 0.8,
+    weight: 39.5,
+    generation: 3
+  },
+  {
+    name: "Sealeo",
+    types: ["Ice", "Water"],
+    height: 1.1,
+    weight: 87.6,
+    generation: 3
+  },
+  {
+    name: "Walrein",
+    types: ["Ice", "Water"],
+    height: 1.4,
+    weight: 150.6,
+    generation: 3
+  },
+  {
+    name: "Clamperl",
+    types: ["Water", "None"],
+    height: 0.4,
+    weight: 52.5,
+    generation: 3
+  },
+  {
+    name: "Huntail",
+    types: ["Water", "None"],
+    height: 1.7,
+    weight: 27.0,
+    generation: 3
+  },
+  {
+    name: "Gorebyss",
+    types: ["Water", "None"],
+    height: 1.8,
+    weight: 22.6,
+    generation: 3
+  },
+  {
+    name: "Relicanth",
+    types: ["Water", "Rock"],
+    height: 1.0,
+    weight: 23.4,
+    generation: 3
+  },
+  {
+    name: "Luvdisc",
+    types: ["Water", "None"],
+    height: 0.6,
+    weight: 8.7,
+    generation: 3
+  },
+  {
+    name: "Bagon",
+    types: ["Dragon", "None"],
+    height: 0.6,
+    weight: 42.1,
+    generation: 3
+  },
+  {
+    name: "Shelgon",
+    types: ["Dragon", "None"],
+    height: 1.1,
+    weight: 110.5,
+    generation: 3
+  },
+  {
+    name: "Salamence",
+    types: ["Dragon", "Flying"],
+    height: 1.5,
+    weight: 102.6,
+    generation: 3
+  },
+  {
+    name: "Beldum",
+    types: ["Steel", "Psychic"],
+    height: 0.6,
+    weight: 95.2,
+    generation: 3
+  },
+  {
+    name: "Metang",
+    types: ["Steel", "Psychic"],
+    height: 1.2,
+    weight: 202.5,
+    generation: 3
+  },
+  {
+    name: "Metagross",
+    types: ["Steel", "Psychic"],
+    height: 1.6,
+    weight: 550.0,
+    generation: 3
+  },
+  {
+    name: "Regirock",
+    types: ["Rock", "None"],
+    height: 1.7,
+    weight: 230.0,
+    generation: 3
+  },
+  {
+    name: "Regice",
+    types: ["Ice", "None"],
+    height: 1.8,
+    weight: 175.0,
+    generation: 3
+  },
+  {
+    name: "Registeel",
+    types: ["Steel", "None"],
+    height: 1.9,
+    weight: 205.0,
+    generation: 3
+  },
+  {
+    name: "Latias",
+    types: ["Dragon", "Psychic"],
+    height: 1.4,
+    weight: 40.0,
+    generation: 3
+  },
+  {
+    name: "Latios",
+    types: ["Dragon", "Psychic"],
+    height: 2.0,
+    weight: 60.0,
+    generation: 3
+  },
+  {
+    name: "Kyogre",
+    types: ["Water", "None"],
+    height: 4.5,
+    weight: 352.0,
+    generation: 3
+  },
+  {
+    name: "Groudon",
+    types: ["Ground", "None"],
+    height: 3.5,
+    weight: 950.0,
+    generation: 3
+  },
+  {
+    name: "Rayquaza",
+    types: ["Dragon", "Flying"],
+    height: 7.0,
+    weight: 206.5,
+    generation: 3
+  },
+  {
+    name: "Jirachi",
+    types: ["Steel", "Psychic"],
+    height: 0.3,
+    weight: 1.1,
+    generation: 3
+  },
+  {
+    name: "Deoxys",
+    types: ["Psychic", "None"],
+    height: 1.7,
+    weight: 60.8,
+    generation: 3
   }
 ];
