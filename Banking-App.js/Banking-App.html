@@ -1,0 +1,46 @@
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+      <link href="styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <title>Bank App</title>
+    </head>
+      <body>
+        <div id="wrap">
+          <h1>Bank Management App</h1>
+          <h2>Welcome back! Find all of your active accounts below:</h2>
+            <div id="current-account"><b>Current account #1b263b:</b> <span id="curr-amount">$0</span></div>
+              <div id="button-options">
+                <button class="initial" id="withdrawal-btn">Withdraw</button>
+                <button class="initial" id="deposit-btn">Deposit</button>
+                <button class="initial" id="balance-btn">Check Balance</button>
+                <button class="initial" id="transactions-btn">Transaction History</button>
+              </div>
+      
+            <div id="transactions-options">
+              <button class="alt-screen" id="deposit-transactions">Check Deposits</button>
+              <button class="alt-screen" id="withdrawal-transactions">Check Withdrawals</button>
+              <button class="alt-screen" id="return-btn">Return</button>
+            </div>
+              <input id="value-input"
+                     type="text"
+                     inputmode="numeric"
+                     step="0.01" 
+                     pattern="[0-9+-.]+"
+                     oninput="validate(this)" />
+             <div id="display">
+            </div>
+        
+          
+            <div id="add-product">Would you like to add another product?</div>
+          <div id="more-products">
+             <button id="no-product" type="button">X</button>
+             <button id="yes-product" type="button">&#x2713;</button>
+          </div>
+      </div> <!--wrap-->
+        <div id="sig">- By R McGregor</div>
+      <script src="script.js"></script>
+    </body>
+</html>
+      
