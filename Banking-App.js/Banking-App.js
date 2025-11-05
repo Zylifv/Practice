@@ -120,3 +120,7 @@ let validate = function(e) {
   let t = e.value;
   e.value = t.indexOf(".") >= 0 ? t.slice(0, t.indexOf(".") + 3) : t;
 }
+
+document.getElementById("no-product").addEventListener("click", () => {
+  document.getElementById("add-product").style.display = "none";
+});
