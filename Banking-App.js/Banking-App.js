@@ -37,7 +37,11 @@ class BankAccount {
           deposits.push(` $${this.transactions[i].amount}`)
         }
       }
-    display.innerHTML = `Deposits:\n ${deposits}`
+      if (deposits.length === 0) {
+        display.innerHTML = "No deposits have been made."
+      } else {
+        display.innerHTML = `Deposits:\n ${deposits}`
+    }
   }
 
   listAllWithdrawals() {
@@ -47,7 +51,11 @@ class BankAccount {
         withdrawals.push(` $${this.transactions[i].amount}`)
       }
     }
-    display.innerHTML = `Withdrawals:\n ${withdrawals}`
+    if (withdrawals.length === 0) {
+      display.innerHTML = "No withdrawals have been made."
+    } else {
+      display.innerHTML = `Withdrawals:\n ${withdrawals}`
+    }
   }
 }
 
