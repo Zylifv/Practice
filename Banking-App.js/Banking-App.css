@@ -11,6 +11,12 @@
   --red: #e8401c;
 }
 
+@media only screen and (max-width: 600px) {
+  body {
+    transform: scale(0.9);
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -29,7 +35,7 @@ h1 {
   color: var(--dark-blue);
 }
 
-h2 {
+h2, h3 {
   margin: auto;
   text-align: center;
   padding-bottom: 20px;
@@ -94,6 +100,7 @@ h2 {
 
 .initial:active, .alt-screen:active {
   background-color: var(--gold);
+  transform: translate(3px, 3px);
 }
 
 #value-input {
