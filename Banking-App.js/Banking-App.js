@@ -7,11 +7,11 @@ class BankAccount {
   deposit(num) {
     if (num > 0) {
       this.transactions.push({type: "deposit", amount: num})
-      let result = parseFloat((this.balance + num).toFixed(2));
-      let displayVal = (this.balance + num).toFixed(2); //works
+      let result = this.balance + numConversion(num);
+      let displayVal = result.toLocaleFixed(2); //works
       this.balance = result;
       console.log(result, displayVal)
-      display.textContent = `Successfully deposited $${num.toFixed(2)}`
+      display.textContent = `Successfully deposited $${num.toLocaleFixed(2)}`
       currAmount.textContent = ` $${displayVal}`
     } else {
       display.textContent = "Deposit amount must be greater than zero."
@@ -23,23 +23,23 @@ class BankAccount {
       display.textContent = "Insufficient balance or invalid amount."
     } else {
       this.transactions.push({type: "withdraw", amount: num})
-      let result = parseFloat((this.balance - num).toFixed(2));
-      let displayVal = (this.balance - num).toFixed(2);
+      let result = this.balance - numConversion(num);
+      let displayVal = result.toLocaleFixed(2);
       this.balance = result;
-      display.textContent = `Successfully withdrew $${num.toFixed(2)}`
+      display.textContent = `Successfully withdrew $${num.toLocaleFixed(2)}`
       currAmount.textContent = ` $${displayVal}`
     }
   }
 
   checkBalance() {
-    display.textContent = `Current balance for all accounts: $${this.balance}`
+    display.textContent = `Current balance for all accounts: $${this.balance.toLocaleFixed(2)}`
   }
 
   listAllDeposits() {
     let deposits = []
       for (let i = 0; i < this.transactions.length; i++) {
         if (this.transactions[i].type == "deposit") {
-          deposits.push(` $${this.transactions[i].amount.toFixed(2)}`)
+          deposits.push(` $${this.transactions[i].amount.toLocaleFixed(2)}`)
         }
       }
       if (deposits.length === 0) {
@@ -53,16 +53,26 @@ class BankAccount {
     let withdrawals = []
     for (let i = 0; i < this.transactions.length; i++) {
       if (this.transactions[i].type == "withdraw") {
-        withdrawals.push(` $${this.transactions[i].amount.toFixed(2)}`)
+        withdrawals.push(` $${this.transactions[i].amount.toLocaleFixed(2)}`)
       }
     }
     if (withdrawals.length === 0) {
       display.innerHTML = "No withdrawals have been made."
     } else {
-      display.innerHTML = `Withdrawals:\n ${withdrawals.toFixed(2)}`
+      display.innerHTML = `Withdrawals:\n ${withdrawals}`
     }
   }
 }
+
+function numConversion(n) {
+      return parseFloat(n.toFixed(2))
+    }
+
+Number.prototype.toLocaleFixed = function(n) {
+  return this.toLocaleString(undefined, {
+    minimumFractionDigits: n
+  });
+};
 
 const myAccount = new BankAccount();
 let currAmount = document.getElementById("curr-amount");
