@@ -37,29 +37,36 @@ class BankAccount {
 
   listAllDeposits() {
     let deposits = []
+    let depositsVal = [];
       for (let i = 0; i < this.transactions.length; i++) {
         if (this.transactions[i].type == "deposit") {
           deposits.push(` $${this.transactions[i].amount.toLocaleFixed(2)}`)
+          depositsVal.push(this.transactions[i].amount)
         }
       }
       if (deposits.length === 0) {
         display.innerHTML = "No deposits have been made."
       } else {
-        display.innerHTML = `Deposits:\n ${deposits}`
+        display.innerHTML = `Deposits:\n ${deposits}<br>
+        Total value: $${depositsVal.reduce((a,b) => a + b).toLocaleFixed(2)}`
     }
+    console.log(depositsVal);
   }
 
   listAllWithdrawals() {
     let withdrawals = []
+    let withdrawalsVal = [];
     for (let i = 0; i < this.transactions.length; i++) {
       if (this.transactions[i].type == "withdraw") {
         withdrawals.push(` $${this.transactions[i].amount.toLocaleFixed(2)}`)
+        withdrawalsVal.push(this.transactions[i].amount)
       }
     }
     if (withdrawals.length === 0) {
       display.innerHTML = "No withdrawals have been made."
     } else {
-      display.innerHTML = `Withdrawals:\n ${withdrawals}`
+      display.innerHTML = `Withdrawals:\n ${withdrawals}<br>
+      Total value: ${withdrawalsVal.reduce((a,b) => a+b).toLocaleFixed(2)}`
     }
   }
 }
@@ -146,3 +153,4 @@ document.getElementById("yes-product").addEventListener("click", () => {
     document.getElementById("add-product").style.display = "none";
   }, 5000);
 });
+
