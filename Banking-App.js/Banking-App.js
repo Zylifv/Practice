@@ -1,15 +1,18 @@
 class BankAccount {
   constructor(balance, transactions) {
-    this.balance = 0;
+    this.balance = 0.00;
     this.transactions = []
   }
 
   deposit(num) {
     if (num > 0) {
       this.transactions.push({type: "deposit", amount: num})
-      this.balance += num;
-      display.textContent = `Successfully deposited $${num}`
-      currAmount.textContent = ` $${this.balance.toFixed(2)}`
+      let result = parseFloat((this.balance + num).toFixed(2));
+      let displayVal = (this.balance + num).toFixed(2); //works
+      this.balance = result;
+      console.log(result, displayVal)
+      display.textContent = `Successfully deposited $${num.toFixed(2)}`
+      currAmount.textContent = ` $${displayVal}`
     } else {
       display.textContent = "Deposit amount must be greater than zero."
     }
@@ -20,9 +23,11 @@ class BankAccount {
       display.textContent = "Insufficient balance or invalid amount."
     } else {
       this.transactions.push({type: "withdraw", amount: num})
-      this.balance -= num;
-      display.textContent = `Successfully withdrew $${num}`
-      currAmount.textContent = ` $${this.balance}`
+      let result = parseFloat((this.balance - num).toFixed(2));
+      let displayVal = (this.balance - num).toFixed(2);
+      this.balance = result;
+      display.textContent = `Successfully withdrew $${num.toFixed(2)}`
+      currAmount.textContent = ` $${displayVal}`
     }
   }
 
@@ -34,7 +39,7 @@ class BankAccount {
     let deposits = []
       for (let i = 0; i < this.transactions.length; i++) {
         if (this.transactions[i].type == "deposit") {
-          deposits.push(` $${this.transactions[i].amount}`)
+          deposits.push(` $${this.transactions[i].amount.toFixed(2)}`)
         }
       }
       if (deposits.length === 0) {
@@ -48,13 +53,13 @@ class BankAccount {
     let withdrawals = []
     for (let i = 0; i < this.transactions.length; i++) {
       if (this.transactions[i].type == "withdraw") {
-        withdrawals.push(` $${this.transactions[i].amount}`)
+        withdrawals.push(` $${this.transactions[i].amount.toFixed(2)}`)
       }
     }
     if (withdrawals.length === 0) {
       display.innerHTML = "No withdrawals have been made."
     } else {
-      display.innerHTML = `Withdrawals:\n ${withdrawals}`
+      display.innerHTML = `Withdrawals:\n ${withdrawals.toFixed(2)}`
     }
   }
 }
@@ -123,4 +128,11 @@ let validate = function(e) {
 
 document.getElementById("no-product").addEventListener("click", () => {
   document.getElementById("add-product").style.display = "none";
+});
+
+document.getElementById("yes-product").addEventListener("click", () => {
+  document.getElementById("add-product").innerHTML = "This service is currently unavailable, sorry for any inconvenience.";
+  setInterval(function() {
+    document.getElementById("add-product").style.display = "none";
+  }, 5000);
 });
