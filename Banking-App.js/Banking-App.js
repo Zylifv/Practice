@@ -66,7 +66,7 @@ class BankAccount {
       display.innerHTML = "No withdrawals have been made."
     } else {
       display.innerHTML = `Withdrawals:\n ${withdrawals}<br>
-      Total value: ${withdrawalsVal.reduce((a,b) => a+b).toLocaleFixed(2)}`
+      Total value: $${withdrawalsVal.reduce((a,b) => a+b).toLocaleFixed(2)}`
     }
   }
 }
