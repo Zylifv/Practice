@@ -5,51 +5,44 @@ const startBtn = document.getElementById("start");
 const lockBtns = document.querySelectorAll(".dice-lock");
 const chooseScoreDisplay = document.getElementById("choose-score-option");
 const chooseScoreBtnOptions = document.querySelectorAll(".score-option");
+const scoreOptionUpper = document.querySelectorAll(".score-option-upper");
 let currentScoreTotal = document.getElementById("current-score-total");
 let rerollCounter = 3;
 let currentDice = [];
 let currentGameScore = 0;
-
-//possibly dead-weight, will have to refine first
-let aces = false;
-let twos = false;
-let threes = false;
-let fours = false;
-let fives = false;
-let sixes = false;
-
-let chance = false;
-let threeOfAKind = false;
-let fourOfAKind = false;
-let fullHouse = false;
-let smallStraight = false;
-let largeStraight = false;
-let yahtzee = false;
-
+let remainTurns = 13;
+let selectedScoreValue = 0;
 
 for (let btn of chooseScoreBtnOptions) btn.style.display = "none";
-
 
 function randomRoll() {
   return Math.floor(Math.random() * 6 + 1);
 }
 
-
 startBtn.addEventListener("click", () => {
-  playerDice.forEach((dice) => {
-    dice.style.border = "3px solid var(--light-grey)";
-    dice.value = randomRoll(dice);
-    dice.textContent = dice.value;
-    dice.style.disabled = false;
-  });
-  startBtn.disabled = true;
-  rollDice.style.disabled = false;
-  currentDice.length = 0;
-  remainingRollsCounter.textContent = "Remaining re-rolls: 3";
-  rerollCounter = 3;
+  reset();
+  if (remainTurns > 0)
+    {
+      playerDice.forEach((dice) => {
+        dice.style.border = "3px solid var(--light-grey)";
+        dice.value = randomRoll(dice);
+        dice.textContent = dice.value;
+        dice.style.disabled = false;
+      });
+     startBtn.disabled = true;
+     rollDice.disabled = false;
+     currentDice.length = 0;
+     remainingRollsCounter.textContent = "Remaining re-rolls: 3";
+     rerollCounter = 3;
+     remainTurns -= 1;
+     selectedScoreValue = 0;
+    }
+  
 })
 
-rerollCounter === 0 ? rollDice.style.disabled = true : rollDice.style.disabled = false;
+
+rerollCounter === 0 ? rollDice.disabled = true : rollDice.disabled = false;
+
 
 rollDice.addEventListener("click", () => {
   rerollCounter === 1 ? startBtn.disabled = false : startBtn.disabled = true;
@@ -96,49 +89,62 @@ function checkScore() {
   check = check.join("");
   console.log(check);
   
-  rollDice.style.disabled = true;
-  startBtn.style.disabled = false;
+  rollDice.disabled = true;
+  startBtn.disabled = false;
 
   chance == false ? chance = true : chance = false;
   console.log(`chance ${chance}`)
   
   if (/(.)\1{4}/.test(check)) //Yahtzee check
   {
-    yahtzee = true;
-    document.getElementById("yahtzee-score").style.display = "block";
-    console.log(`yahtzee ${yahtzee}`);
+    if (!document.getElementById("yahtzee-score").classList.contains("alreadyClicked"))
+    {
+      document.getElementById("yahtzee-score").style.display = "block";
+      console.log(`yahtzee ${yahtzee}`);
+    }
   }
   if (/12345|23456/.test(check)) //large straight check
   {
-    largeStraight = true;
-    document.getElementById("large-straight-score").style.display = "block";
-    console.log(`large straight ${largeStraight}`);
+    if (!document.getElementById("large-straight-score").classList.contains("alreadyClicked"))
+    {
+      document.getElementById("large-straight-score").style.display = "block";
+      console.log(`large straight ${largeStraight}`);
+    }
   }
   if (/1234|2345|3456/.test(check)) //small straight check
   {
-    smallStraight = true;
-    document.getElementById("small-straight-score").style.display = "block";
-    console.log(`small straight ${smallStraight}`)
+    if (!document.getElementById("small-straight-score").classList.contains("alreadyClicked"))
+    {
+      document.getElementById("small-straight-score").style.display = "block";
+      console.log(`small straight ${smallStraight}`);
+    }
   }
   if (/(.)\1{2}(.)\2|(.)\3(.)\4{2}/.test(check) && check.substring(0,1) !== check.substring(check.length -1)) //full house check
   {
-    fullHouse = true;
-    document.getElementById("full-house-score").style.display = "block";
-    console.log(`full house ${fullHouse}`);
+    if (!document.getElementById("full-house-score").classList.contains("alreadyClicked"))
+    {
+      document.getElementById("full-house-score").style.display = "block";
+      console.log(`full house ${fullHouse}`);
+    }
   }
   if (/(.)\1{3}/.test(check)) //four of a kind check
   {
-    fourOfAKind = true;
-    document.getElementById("four-of-a-kind-score").style.display = "block";
-    document.getElementById("four-of-a-kind-score").value = currentDice.reduce((a,b) => a + b, 0);
-    console.log(`four of a kind ${fourOfAKind}`);
+    if (!document.getElementById("four-of-a-kind-score").classList.contains("alreadyClicked"))
+    {
+      document.getElementById("four-of-a-kind-score").style.display = "block";
+      document.getElementById("four-of-a-kind-score").value = currentDice.reduce((a,b) => a + b, 0);
+      console.log(`four of a kind ${fourOfAKind}`);
+    }
+    
   }
   if (/(.)\1{2}/.test(check)) //three of a kind check
   {
-    threeOfAKind = true;
-    document.getElementById("three-of-a-kind-score").style.display = "block";
-    document.getElementById("three-of-a-kind-score").value = currentDice.reduce((a,b) => a + b, 0);
-    console.log(`three of a kind ${threeOfAKind}`);
+    if (!document.getElementById("three-of-a-kind-score").classList.contains("alreadyClicked"))
+    {
+      document.getElementById("three-of-a-kind-score").style.display = "block";
+      document.getElementById("three-of-a-kind-score").value = currentDice.reduce((a,b) => a + b, 0);
+      console.log(`three of a kind ${threeOfAKind}`);
+    }
   }  
   if (chance)
   {
@@ -151,40 +157,35 @@ function checkScore() {
   // works for each of the upper section scores, now to find a way to disable them once already selected
     for (let op of document.querySelectorAll(".score-option-upper")) {
       console.log(op.value)
-      if (currentDice.includes(Number(op.value))) {
+      if (currentDice.includes(Number(op.value)) && !op.classList.contains("alreadyClicked")) {
         op.style.display = "block";
         op.value = currentDice.filter((v) => v === Number(op.value)).reduce((a,b) => a + b, 0);
     };
   }
-  reset();
 }
 
 //select which score option to take, will remove the option from future hands
 chooseScoreBtnOptions.forEach((btn) => {
-  btn.addEventListener("click", () => {
+    btn.addEventListener("click", () => {
     btn.classList.add("alreadyClicked");
     console.log(btn.id);
     console.log(btn.value);
     currentGameScore += Number(btn.value);
     currentScoreTotal.textContent = `Current total score: ${currentGameScore}`;
     document.getElementById(trim(btn.id)).textContent += ` ${Number(btn.value)}`;
-    for (let btn of chooseScoreBtnOptions) btn.style.display = "none";
+
+     for (let btn of chooseScoreBtnOptions) {
+       btn.style.display = "none";
+     };
   });
 });
 
 
 function reset() {
-  aces = false;
-  twos = false;
-  threes = false;
-  fours = false;
-  fives = false;
-  sixes = false;
+  let v = 1;
   chance = false;
-  threeOfAKind = false;
-  fourOfAKind = false;
-  fullHouse = false;
-  smallStraight = false;
-  largeStraight = false;
-  yahtzee = false;
+  for (let btn of scoreOptionUpper) { //reassigns the correct initial val to each of the buttons (needs refining somehow)
+    btn.value = v;
+    v += 1;
+  }
 }
