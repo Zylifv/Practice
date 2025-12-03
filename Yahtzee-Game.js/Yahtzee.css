@@ -1,0 +1,122 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+:root {
+  --green: #758242;
+  --white: #fff;
+  --black: #2c2b30;
+  --light-grey: #dee2e6;
+  --gold: #ffc300;
+  --bold-gold: #EBB02D;
+  --grapefruit: #d96846;
+}
+
+body {
+  font-family: 'Source Sans Pro';
+  background: var(--black);
+  color: var(--white);
+}
+
+#curr-hand-display {
+  margin: auto;
+  max-width: 400px;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+#scores-box, #curr-round-counter {
+  margin: auto;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 1.2em;
+  margin: 10px 0px 15px 0px;
+}
+
+h1, h2 {
+  margin: auto;
+  text-align: center;
+  padding-bottom: 1px;
+}
+
+h2 {
+  background-color: var(--green);
+  color: #fff;
+}
+
+#roll-dice, #start, .score-option {
+  margin: auto;
+  margin-top: 20px;
+  display: flex;
+  width: 120px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--grapefruit);
+  background-color: var(--white);
+  font-weight: bold;
+}
+
+#choose-score-option {
+  margin: auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  width: 400px;
+}
+
+#choose-score-option > button {
+  border: 3px solid var(--bold-gold);
+}
+
+.score-option:hover {
+  transform: scale(1.05);
+}
+
+#scores-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto;
+  border: 5px solid var(--light-grey);
+  border-radius: 8px;
+  width: 400px;
+  height: 260px;
+  margin-bottom: 20px;
+  color: var(--black);
+  background-color: var(--white);
+  font-weight: bold;
+}
+
+#upper-section-boxes {
+  border-right: 5px solid var(--light-grey);
+}
+
+#upper-section-boxes > #sixes {
+  border-bottom: 2px solid var(--green);
+}
+
+#upper-section-boxes > .any-category, #lower-section-boxes > div {
+  border-top: 2px solid var(--green);
+  height: 26px;
+  text-align: center;
+  justify-content: center;
+}
+
+.player-dice {
+  margin: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border: 3px solid var(--light-grey);
+  border-radius: 4px;
+  margin-bottom: 15px;
+  background-color: var(--white);
+  color: var(--black);
+  font-weight: bold;
+  font-size: 1.2em;
+}
