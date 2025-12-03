@@ -5,10 +5,12 @@ const startBtn = document.getElementById("start");
 const lockBtns = document.querySelectorAll(".dice-lock");
 const chooseScoreDisplay = document.getElementById("choose-score-option");
 const chooseScoreBtnOptions = document.querySelectorAll(".score-option");
+let currentScoreTotal = document.getElementById("current-score-total");
 let rerollCounter = 3;
 let currentDice = [];
 let currentGameScore = 0;
 
+//possibly dead-weight, will have to refine first
 let aces = false;
 let twos = false;
 let threes = false;
@@ -32,20 +34,22 @@ function randomRoll() {
   return Math.floor(Math.random() * 6 + 1);
 }
 
+
 startBtn.addEventListener("click", () => {
   playerDice.forEach((dice) => {
+    dice.style.border = "3px solid var(--light-grey)";
     dice.value = randomRoll(dice);
     dice.textContent = dice.value;
+    dice.style.disabled = false;
   });
   startBtn.disabled = true;
   rollDice.style.disabled = false;
   currentDice.length = 0;
   remainingRollsCounter.textContent = "Remaining re-rolls: 3";
+  rerollCounter = 3;
 })
 
-
 rerollCounter === 0 ? rollDice.style.disabled = true : rollDice.style.disabled = false;
-
 
 rollDice.addEventListener("click", () => {
   rerollCounter === 1 ? startBtn.disabled = false : startBtn.disabled = true;
@@ -65,22 +69,28 @@ rollDice.addEventListener("click", () => {
     playerDice.forEach((dice) => {
       if (dice.style.disabled !== true) currentDice.push(dice.value); //pushes remaining dice into array that player didnt choose
     });
+    startBtn.disabled = false;
     checkScore();
   };
 });
 
+//improved visibility for players to see what dice have already been locked in
 playerDice.forEach((dice) => {
   dice.addEventListener("click", () => {
     currentDice.push(dice.value);
     dice.style.border = "3px solid var(--gold)";
     dice.style.disabled = true;
-    
-    console.log(dice.id);
   })
 });
 
 console.log(randomRoll());
 
+//allows comparisons to be made between the section boxes and the score buttons
+function trim(str) {
+  return str.substring(0, str.length - 6);
+}
+
+//check what options are available to the player once all rolls have been made
 function checkScore() {
   let check = currentDice.sort((a,b) => a - b);
   check = check.join("");
@@ -120,27 +130,46 @@ function checkScore() {
   {
     fourOfAKind = true;
     document.getElementById("four-of-a-kind-score").style.display = "block";
+    document.getElementById("four-of-a-kind-score").value = currentDice.reduce((a,b) => a + b, 0);
     console.log(`four of a kind ${fourOfAKind}`);
   }
   if (/(.)\1{2}/.test(check)) //three of a kind check
   {
     threeOfAKind = true;
     document.getElementById("three-of-a-kind-score").style.display = "block";
+    document.getElementById("three-of-a-kind-score").value = currentDice.reduce((a,b) => a + b, 0);
     console.log(`three of a kind ${threeOfAKind}`);
   }  
-  if (!chance)
+  if (chance)
   {
-    document.getElementById("chance-score").style.display = "block";
+    if (!document.getElementById("chance-score").classList.contains("alreadyClicked"))
+    {
+      document.getElementById("chance-score").style.display = "block";
+      document.getElementById("chance-score").value = currentDice.reduce((a,b) => a + b, 0);
+    }
+  }
+  // works for each of the upper section scores, now to find a way to disable them once already selected
+    for (let op of document.querySelectorAll(".score-option-upper")) {
+      console.log(op.value)
+      if (currentDice.includes(Number(op.value))) {
+        op.style.display = "block";
+        op.value = currentDice.filter((v) => v === Number(op.value)).reduce((a,b) => a + b, 0);
+    };
   }
   reset();
 }
 
-
+//select which score option to take, will remove the option from future hands
 chooseScoreBtnOptions.forEach((btn) => {
   btn.addEventListener("click", () => {
+    btn.classList.add("alreadyClicked");
     console.log(btn.id);
-  })
-  
+    console.log(btn.value);
+    currentGameScore += Number(btn.value);
+    currentScoreTotal.textContent = `Current total score: ${currentGameScore}`;
+    document.getElementById(trim(btn.id)).textContent += ` ${Number(btn.value)}`;
+    for (let btn of chooseScoreBtnOptions) btn.style.display = "none";
+  });
 });
 
 
