@@ -10,10 +10,13 @@ let currentScoreTotal = document.getElementById("current-score-total");
 let rerollCounter = 3;
 let currentDice = [];
 let currentGameScore = 0;
+let scoreToBeat = 220;
 let remainTurns = 13;
 let selectedScoreValue = 0;
 
+
 for (let btn of chooseScoreBtnOptions) btn.style.display = "none";
+
 
 function randomRoll() {
   return Math.floor(Math.random() * 6 + 1);
@@ -36,8 +39,14 @@ startBtn.addEventListener("click", () => {
      rerollCounter = 3;
      remainTurns -= 1;
      selectedScoreValue = 0;
+     document.getElementById("remaining-turns-left").textContent = `Turns left: ${remainTurns}`;
     }
-  
+    else
+      {
+        currentGameScore <= scoreToBeat ? currentScoreTotal.textContent = `You got ${currentGameScore} points, you needed to beat ${scoreToBeat}... You lose...` : currentScoreTotal.textContent = `You got ${currentGameScore} points, You Win!`;
+        document.getElementById("current-score-needed").textContent = "";
+        document.getElementById("remaining-turns-left").textContent = "";
+      }
 })
 
 
@@ -100,7 +109,6 @@ function checkScore() {
     if (!document.getElementById("yahtzee-score").classList.contains("alreadyClicked"))
     {
       document.getElementById("yahtzee-score").style.display = "block";
-      console.log(`yahtzee ${yahtzee}`);
     }
   }
   if (/12345|23456/.test(check)) //large straight check
@@ -108,15 +116,13 @@ function checkScore() {
     if (!document.getElementById("large-straight-score").classList.contains("alreadyClicked"))
     {
       document.getElementById("large-straight-score").style.display = "block";
-      console.log(`large straight ${largeStraight}`);
     }
   }
-  if (/1234|2345|3456/.test(check)) //small straight check
+  if (/1234|2345|3456/.test(Array.from(new Set(check.split(""))).join("").toString())) //small straight check
   {
     if (!document.getElementById("small-straight-score").classList.contains("alreadyClicked"))
     {
       document.getElementById("small-straight-score").style.display = "block";
-      console.log(`small straight ${smallStraight}`);
     }
   }
   if (/(.)\1{2}(.)\2|(.)\3(.)\4{2}/.test(check) && check.substring(0,1) !== check.substring(check.length -1)) //full house check
@@ -124,7 +130,6 @@ function checkScore() {
     if (!document.getElementById("full-house-score").classList.contains("alreadyClicked"))
     {
       document.getElementById("full-house-score").style.display = "block";
-      console.log(`full house ${fullHouse}`);
     }
   }
   if (/(.)\1{3}/.test(check)) //four of a kind check
@@ -133,7 +138,6 @@ function checkScore() {
     {
       document.getElementById("four-of-a-kind-score").style.display = "block";
       document.getElementById("four-of-a-kind-score").value = currentDice.reduce((a,b) => a + b, 0);
-      console.log(`four of a kind ${fourOfAKind}`);
     }
     
   }
@@ -143,7 +147,6 @@ function checkScore() {
     {
       document.getElementById("three-of-a-kind-score").style.display = "block";
       document.getElementById("three-of-a-kind-score").value = currentDice.reduce((a,b) => a + b, 0);
-      console.log(`three of a kind ${threeOfAKind}`);
     }
   }  
   if (chance)
@@ -184,7 +187,8 @@ chooseScoreBtnOptions.forEach((btn) => {
 function reset() {
   let v = 1;
   chance = false;
-  for (let btn of scoreOptionUpper) { //reassigns the correct initial val to each of the buttons (needs refining somehow)
+  
+  for (let btn of scoreOptionUpper) { //reassigns the correct initial val to each of the buttons (needs refining somehow...)
     btn.value = v;
     v += 1;
   }
