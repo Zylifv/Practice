@@ -3,10 +3,12 @@ I like the abilities presented in that game so that the player can munipulate ou
 I want to first make a Yahtzee game that plays normally, then introduce ways the player can alter dice-rolls, use abilties, gain dice etc
 
 Things to do:
- - Resolve the scoring system effectively (user chooses which way to score & go to next round when applicable)
+ - Resolve the scoring system effectively (user chooses which way to score & go to next round when applicable) - DONE
+        > Complete. I managed to trim the code down and allow for each type of score to be allowed once.
  - Minimise repeat code (remove all un-necessary code eventually)
- - Have a way to track which options the player has already used when choosing how to score
- - Maybe have a score the player must try to beat? (Single player progeression system)
+        > Implementing the DRY method to most of the code, i still need to refine some areas.
+ - Have a way to track which options the player has already used when choosing how to score - DONE
+ - Maybe have a score the player must try to beat? (Single player progeression system) - DONE
  - Eventually add different ways the player can change outcomes with card effects, such as:
         > Adding an extra dice for one roll
         > Having dice only roll odd or even for one roll
