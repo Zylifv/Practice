@@ -6,6 +6,7 @@ const lockBtns = document.querySelectorAll(".dice-lock");
 const chooseScoreDisplay = document.getElementById("choose-score-option");
 const chooseScoreBtnOptions = document.querySelectorAll(".score-option");
 const scoreOptionUpper = document.querySelectorAll(".score-option-upper");
+const diceFaces = document.querySelectorAll(".dice");
 let currentScoreTotal = document.getElementById("current-score-total");
 let rerollCounter = 3;
 let currentDice = [];
@@ -13,25 +14,65 @@ let currentGameScore = 0;
 let scoreToBeat = 220;
 let remainTurns = 13;
 let selectedScoreValue = 0;
+const randDiceCol = ["#A9BCFF", "#9AFFFF", "#18FFB1", "#FFD493", "#FF9F8C", "#FFBDDA", "#FFFFE3"];
 
 
 for (let btn of chooseScoreBtnOptions) btn.style.display = "none";
 
 
+function rollTheDice() { //implemented "DRY" when assigning values to the dice, moving it to a seperate function
+  
+   playerDice.forEach((dice) => {
+     if (dice.style.disabled !== true)
+     {
+       let i = 1;
+       do {
+         dice.classList.contains(`dice-face-${i}`) ? dice.classList.remove(`dice-face-${i}`) : i += 1; //stops dice from having more than one 'dice-face-n' and interfering with the CSS
+        } while (i <= 6);
+       //dice.style.border = "1px solid var(--ivory-border)";
+        dice.value = randomRoll(dice);
+       
+        for (let d of diceFaces) {
+            if (dice.value === Number(d.id)) {
+              dice.classList.add(`dice-face-${dice.value}`);
+              dice.innerHTML = document.getElementById(`${dice.value}`).innerHTML;
+            }
+        }
+        dice.style.disabled = false;
+     }
+  });
+}
+
 function randomRoll() {
   return Math.floor(Math.random() * 6 + 1);
 }
+
+function isLight(color) { //#RRGGBB eg
+    if (color) {
+      const rgb = [
+        parseInt(color.substring(1, 3), 16),
+        parseInt(color.substring(3, 5), 16),
+        parseInt(color.substring(5), 16),
+      ];
+      const luminance =
+        (0.2126 * rgb[0]) / 255 +
+        (0.7152 * rgb[1]) / 255 +
+        (0.0722 * rgb[2]) / 255;
+      return luminance > 0.5;
+    }
+    return false
+  }
 
 startBtn.addEventListener("click", () => {
   reset();
   if (remainTurns > 0)
     {
-      playerDice.forEach((dice) => {
-        dice.style.border = "3px solid var(--light-grey)";
-        dice.value = randomRoll(dice);
-        dice.textContent = dice.value;
-        dice.style.disabled = false;
-      });
+     playerDice.forEach((dice) => {
+       dice.style.disabled = false;
+       dice.style["boxShadow"] = "";
+       dice.style.backgroundColor = randDiceCol[Math.floor(Math.random() * randDiceCol.length)];
+     });
+     rollTheDice();
      startBtn.disabled = true;
      rollDice.disabled = false;
      currentDice.length = 0;
@@ -59,13 +100,7 @@ rollDice.addEventListener("click", () => {
   {
     rerollCounter -= 1;
     remainingRollsCounter.textContent = `Remaining re-rolls: ${rerollCounter}`
-    playerDice.forEach((dice) => {
-      if (dice.style.disabled !== true)
-      {
-        dice.value = randomRoll(dice);
-        dice.textContent = dice.value;
-      }
-    });
+    rollTheDice();
    }
   else if (rerollCounter <= 1) {
     playerDice.forEach((dice) => {
@@ -80,12 +115,10 @@ rollDice.addEventListener("click", () => {
 playerDice.forEach((dice) => {
   dice.addEventListener("click", () => {
     currentDice.push(dice.value);
-    dice.style.border = "3px solid var(--gold)";
+    dice.style["boxShadow"] = "0 0 20px var(--gold)";
     dice.style.disabled = true;
   })
 });
-
-console.log(randomRoll());
 
 //allows comparisons to be made between the section boxes and the score buttons
 function trim(str) {
@@ -99,10 +132,12 @@ function checkScore() {
   console.log(check);
   
   rollDice.disabled = true;
-  startBtn.disabled = false;
+  startBtn.disabled = true;
 
   chance == false ? chance = true : chance = false;
   console.log(`chance ${chance}`)
+  
+  playerDice.forEach((d) => {console.log(`dice class: ${d.className}`)});
   
   if (/(.)\1{4}/.test(check)) //Yahtzee check
   {
@@ -165,7 +200,12 @@ function checkScore() {
         op.value = currentDice.filter((v) => v === Number(op.value)).reduce((a,b) => a + b, 0);
     };
   }
+  chooseYourScore();
 }
+
+function chooseYourScore() {
+//if no options available, player skips banking points
+chooseScoreBtnOptions.length == 0 ? startBtn.disabled = false : startBtn.disabled = true;
 
 //select which score option to take, will remove the option from future hands
 chooseScoreBtnOptions.forEach((btn) => {
@@ -176,18 +216,19 @@ chooseScoreBtnOptions.forEach((btn) => {
     currentGameScore += Number(btn.value);
     currentScoreTotal.textContent = `Current total score: ${currentGameScore}`;
     document.getElementById(trim(btn.id)).textContent += ` ${Number(btn.value)}`;
+    startBtn.disabled = false;
 
      for (let btn of chooseScoreBtnOptions) {
-       btn.style.display = "none";
+        btn.style.display = "none";
      };
   });
 });
-
+  
+}
 
 function reset() {
   let v = 1;
   chance = false;
-  
   for (let btn of scoreOptionUpper) { //reassigns the correct initial val to each of the buttons (needs refining somehow...)
     btn.value = v;
     v += 1;
