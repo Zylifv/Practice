@@ -14,7 +14,8 @@ let currentGameScore = 0;
 let scoreToBeat = 220;
 let remainTurns = 13;
 let selectedScoreValue = 0;
-const randDiceCol = ["#A9BCFF", "#9AFFFF", "#18FFB1", "#FFD493", "#FF9F8C", "#FFBDDA", "#FFFFE3"];
+const randDiceCol = ["#A9BCFF", "#9AFFFF", "#18FFB1", "#FFD493", "#FF9F8C", "#FFBDDA"];
+const diceColourNameOptions = ["purple", "cyan", "green", "orange", "red", "pink", "ivory"];
 
 
 for (let btn of chooseScoreBtnOptions) btn.style.display = "none";
@@ -25,11 +26,11 @@ function rollTheDice() { //implemented "DRY" when assigning values to the dice, 
    playerDice.forEach((dice) => {
      if (dice.style.disabled !== true)
      {
-       let i = 1;
+       let i = 0;
        do {
          dice.classList.contains(`dice-face-${i}`) ? dice.classList.remove(`dice-face-${i}`) : i += 1; //stops dice from having more than one 'dice-face-n' and interfering with the CSS
         } while (i <= 6);
-       //dice.style.border = "1px solid var(--ivory-border)";
+  
         dice.value = randomRoll(dice);
        
         for (let d of diceFaces) {
@@ -47,21 +48,9 @@ function randomRoll() {
   return Math.floor(Math.random() * 6 + 1);
 }
 
-function isLight(color) { //#RRGGBB eg
-    if (color) {
-      const rgb = [
-        parseInt(color.substring(1, 3), 16),
-        parseInt(color.substring(3, 5), 16),
-        parseInt(color.substring(5), 16),
-      ];
-      const luminance =
-        (0.2126 * rgb[0]) / 255 +
-        (0.7152 * rgb[1]) / 255 +
-        (0.0722 * rgb[2]) / 255;
-      return luminance > 0.5;
-    }
-    return false
-  }
+function randomDiceColour() {
+  return diceColourNameOptions[Math.floor(Math.random() * diceColourNameOptions.length)] + "-background";
+}
 
 startBtn.addEventListener("click", () => {
   reset();
@@ -70,7 +59,32 @@ startBtn.addEventListener("click", () => {
      playerDice.forEach((dice) => {
        dice.style.disabled = false;
        dice.style["boxShadow"] = "";
-       dice.style.backgroundColor = randDiceCol[Math.floor(Math.random() * randDiceCol.length)];
+       //dice.style.backgroundColor = randDiceCol[Math.floor(Math.random() * randDiceCol.length)];
+       for (let i = 0; i < diceColourNameOptions.length; i++) {
+         dice.classList.contains(`${diceColourNameOptions[i]}-background`) ? dice.classList.remove(`${diceColourNameOptions[i]}-background`) : "";
+       }
+       
+       dice.classList.add(randomDiceColour());
+       /*
+       if (dice.classList.contains("ivory-background"))
+       {
+         console.log(dice.id + " yep")
+         console.log(`${dice.id.substring(dice.id.length -1)}`)
+         document.getElementById(`${dice.id.substring(dice.id.length -1)}`).getElementsByTagName("span").classList.remove(".dot");
+         document.getElementById(`${dice.id.substring(dice.id.length -1)}`).getElementsByTagName("span").classList.add(".dot-dark");
+         //let spanChildren = dice.querySelectorAll("span");
+         //console.log(spanChildren);
+         //spanChildren.forEach((el) => toggleSpanClass(el))
+         //toggleSpanClass(spanChildren);
+         //spArr.forEach((el) => {el.classList.remove(".dot") el.classList.add(".dot-dark")})
+         //spanChildren.classList.remove(".dot");
+         //spanChildren.classList.add(".dot-dark");
+       }
+       else if (!dice.classList.contains("ivory-background" && dice.querySelectorAll("span").classList.contains(".dot-dark")))
+       {
+         dice.querySelector(".span").classList.remove(".dot-dark");  
+         dice.querySelector(".span").classList.add(".dot"); 
+       }*/
      });
      rollTheDice();
      startBtn.disabled = true;
@@ -102,7 +116,7 @@ rollDice.addEventListener("click", () => {
     remainingRollsCounter.textContent = `Remaining re-rolls: ${rerollCounter}`
     rollTheDice();
    }
-  else if (rerollCounter <= 1) {
+  else if (rerollCounter === 0) {
     playerDice.forEach((dice) => {
       if (dice.style.disabled !== true) currentDice.push(dice.value); //pushes remaining dice into array that player didnt choose
     });
@@ -127,6 +141,7 @@ function trim(str) {
 
 //check what options are available to the player once all rolls have been made
 function checkScore() {
+  
   let check = currentDice.sort((a,b) => a - b);
   check = check.join("");
   console.log(check);
@@ -192,6 +207,10 @@ function checkScore() {
       document.getElementById("chance-score").value = currentDice.reduce((a,b) => a + b, 0);
     }
   }
+  else
+  {
+    return;
+  }
   // works for each of the upper section scores, now to find a way to disable them once already selected
     for (let op of document.querySelectorAll(".score-option-upper")) {
       console.log(op.value)
@@ -204,26 +223,27 @@ function checkScore() {
 }
 
 function chooseYourScore() {
-//if no options available, player skips banking points
-chooseScoreBtnOptions.length == 0 ? startBtn.disabled = false : startBtn.disabled = true;
-
-//select which score option to take, will remove the option from future hands
-chooseScoreBtnOptions.forEach((btn) => {
-    btn.addEventListener("click", () => {
-    btn.classList.add("alreadyClicked");
-    console.log(btn.id);
-    console.log(btn.value);
-    currentGameScore += Number(btn.value);
-    currentScoreTotal.textContent = `Current total score: ${currentGameScore}`;
-    document.getElementById(trim(btn.id)).textContent += ` ${Number(btn.value)}`;
-    startBtn.disabled = false;
-
-     for (let btn of chooseScoreBtnOptions) {
-        btn.style.display = "none";
-     };
-  });
-});
-  
+  //if no options available, player skips banking points
+  chooseScoreBtnOptions.length === 0 ? startBtn.disabled = false : startBtn.disabled = true;
+  let clicked = false;
+  //select which score option to take, will remove the option from future hands
+  chooseScoreBtnOptions.forEach((btn) => {
+      btn.addEventListener("click", () => {
+      if (!clicked) {
+      clicked = true;
+      btn.classList.add("alreadyClicked");
+      console.log(btn.id);
+      console.log(Number(btn.value));
+      currentGameScore += Number(btn.value);
+      currentScoreTotal.textContent = `Current total score: ${currentGameScore}`;
+      document.getElementById(trim(btn.id)).textContent = v(btn.id) + `${Number(btn.value)}`;
+      startBtn.disabled = false;
+      }
+        for (let btn of chooseScoreBtnOptions) {
+           btn.style.display = "none";
+        };
+     });
+  }); 
 }
 
 function reset() {
@@ -233,4 +253,15 @@ function reset() {
     btn.value = v;
     v += 1;
   }
+}
+
+function v(str) { //changes score id from lowercase to first letter uppercase and returns it along with the chosen score
+  let l = str.substring(0, str.length - 6).split("-");
+  let o = [];
+  o.push(l[0].substring(0,1).toUpperCase() + l[0].substring(1));
+  l.forEach((el, index) => {
+    if (index === 0) return
+    o.push(el);
+  })
+  return o.length > 1 ? o.join("-") + ": " : `${o}: `;
 }
