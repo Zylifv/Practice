@@ -1,5 +1,6 @@
 const rollDice = document.getElementById("roll-dice");
 const playerDice = document.querySelectorAll(".player-dice");
+const diceDots = document.querySelectorAll(".dot");
 const remainingRollsCounter = document.getElementById("curr-round-counter");
 const startBtn = document.getElementById("start");
 const lockBtns = document.querySelectorAll(".dice-lock");
@@ -52,6 +53,11 @@ function randomDiceColour() {
   return diceColourNameOptions[Math.floor(Math.random() * diceColourNameOptions.length)] + "-background";
 }
 
+var superToggle = function(element, class0, class1) {
+             element.classList.toggle(class0);
+             element.classList.toggle(class1);
+          }
+
 startBtn.addEventListener("click", () => {
   reset();
   if (remainTurns > 0)
@@ -65,26 +71,7 @@ startBtn.addEventListener("click", () => {
        }
        
        dice.classList.add(randomDiceColour());
-       /*
-       if (dice.classList.contains("ivory-background"))
-       {
-         console.log(dice.id + " yep")
-         console.log(`${dice.id.substring(dice.id.length -1)}`)
-         document.getElementById(`${dice.id.substring(dice.id.length -1)}`).getElementsByTagName("span").classList.remove(".dot");
-         document.getElementById(`${dice.id.substring(dice.id.length -1)}`).getElementsByTagName("span").classList.add(".dot-dark");
-         //let spanChildren = dice.querySelectorAll("span");
-         //console.log(spanChildren);
-         //spanChildren.forEach((el) => toggleSpanClass(el))
-         //toggleSpanClass(spanChildren);
-         //spArr.forEach((el) => {el.classList.remove(".dot") el.classList.add(".dot-dark")})
-         //spanChildren.classList.remove(".dot");
-         //spanChildren.classList.add(".dot-dark");
-       }
-       else if (!dice.classList.contains("ivory-background" && dice.querySelectorAll("span").classList.contains(".dot-dark")))
-       {
-         dice.querySelector(".span").classList.remove(".dot-dark");  
-         dice.querySelector(".span").classList.add(".dot"); 
-       }*/
+       
      });
      rollTheDice();
      startBtn.disabled = true;
