@@ -211,7 +211,12 @@ function checkScore() {
 
 function chooseYourScore() {
   //if no options available, player skips banking points
-  chooseScoreBtnOptions.length === 0 ? startBtn.disabled = false : startBtn.disabled = true;
+  let count = 0;
+  for (let i = 0; i < chooseScoreBtnOptions.length; i++) {
+    if (chooseScoreBtnOptions[i].style.display === "block") count += 1;
+  }
+  count <= 0 ? startBtn.disabled = false : startBtn.disabled = true;
+  
   let clicked = false;
   //select which score option to take, will remove the option from future hands
   chooseScoreBtnOptions.forEach((btn) => {
