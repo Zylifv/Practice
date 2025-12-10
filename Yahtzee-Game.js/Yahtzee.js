@@ -15,8 +15,7 @@ let currentGameScore = 0;
 let scoreToBeat = 220;
 let remainTurns = 13;
 let selectedScoreValue = 0;
-const randDiceCol = ["#A9BCFF", "#9AFFFF", "#18FFB1", "#FFD493", "#FF9F8C", "#FFBDDA"];
-const diceColourNameOptions = ["purple", "cyan", "green", "orange", "red", "pink", "ivory"];
+const diceColourNameOptions = ["purple", "cyan", "green", "orange", "red", "pink", "ivory", "yellow"];
 
 
 for (let btn of chooseScoreBtnOptions) btn.style.display = "none";
@@ -84,12 +83,7 @@ function dotCheck(d) { //assigns the correct class to the dots based on the colo
       {
         el.classList.add("dot-dark");
         el.classList.remove("dot");
-        if (d.value === 4)
-        {
-          el.style.backgroundColor = "#e33051";
-          el.classList.add("red-shadow");
-        }
-        else if (d.value === 1)
+        if (d.value === 1)
         {
           el.classList.add("red-one");
           el.style.backgroundColor = "#e33051";
@@ -172,13 +166,11 @@ function checkScore() {
   
   let check = currentDice.sort((a,b) => a - b);
   check = check.join("");
-  console.log(check);
   
   rollDice.disabled = true;
   startBtn.disabled = true;
 
   chance == false ? chance = true : chance = false;
-  console.log(`chance ${chance}`)
   
   playerDice.forEach((d) => {console.log(`dice class: ${d.className}`)});
   
@@ -240,20 +232,22 @@ function checkScore() {
     return;
   }
   // works for each of the upper section scores, now to find a way to disable them once already selected
-    for (let op of document.querySelectorAll(".score-option-upper")) {
-      console.log(op.value)
-      if (currentDice.includes(Number(op.value)) && !op.classList.contains("alreadyClicked")) {
+    for (let op of document.querySelectorAll(".score-option-upper"))
+    {
+      if (currentDice.includes(Number(op.value)) && !op.classList.contains("alreadyClicked"))
+      {
         op.style.display = "block";
         op.value = currentDice.filter((v) => v === Number(op.value)).reduce((a,b) => a + b, 0);
-    };
-  }
+      };
+    }
   chooseYourScore();
 }
 
 function chooseYourScore() {
   //if no options available, player skips banking points
   let count = 0;
-  for (let i = 0; i < chooseScoreBtnOptions.length; i++) {
+  for (let i = 0; i < chooseScoreBtnOptions.length; i++)
+  {
     if (chooseScoreBtnOptions[i].style.display === "block") count += 1;
   }
   count <= 0 ? startBtn.disabled = false : startBtn.disabled = true;
@@ -262,17 +256,17 @@ function chooseYourScore() {
   //select which score option to take, will remove the option from future hands
   chooseScoreBtnOptions.forEach((btn) => {
       btn.addEventListener("click", () => {
-      if (!clicked) {
-      clicked = true;
-      btn.classList.add("alreadyClicked");
-      console.log(btn.id);
-      console.log(Number(btn.value));
-      currentGameScore += Number(btn.value);
-      currentScoreTotal.textContent = `Current total score: ${currentGameScore}`;
-      document.getElementById(trim(btn.id)).textContent = v(btn.id) + `${Number(btn.value)}`;
-      startBtn.disabled = false;
+      if (!clicked)
+      {
+        clicked = true;
+        btn.classList.add("alreadyClicked");
+        currentGameScore += Number(btn.value);
+        currentScoreTotal.textContent = `Current total score: ${currentGameScore}`;
+        document.getElementById(trim(btn.id)).textContent = v(btn.id) + `${Number(btn.value)}`;
+        startBtn.disabled = false;
       }
-        for (let btn of chooseScoreBtnOptions) {
+        for (let btn of chooseScoreBtnOptions)
+        {
            btn.style.display = "none";
         };
      });
@@ -282,7 +276,8 @@ function chooseYourScore() {
 function reset() {
   let v = 1;
   chance = false;
-  for (let btn of scoreOptionUpper) { //reassigns the correct initial val to each of the buttons (needs refining somehow...)
+  for (let btn of scoreOptionUpper) //reassigns the correct initial val to each of the buttons (needs refining somehow...)
+  {
     btn.value = v;
     v += 1;
   }
