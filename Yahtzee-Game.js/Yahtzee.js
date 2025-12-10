@@ -15,7 +15,7 @@ let currentGameScore = 0;
 let scoreToBeat = 220;
 let remainTurns = 13;
 let selectedScoreValue = 0;
-const diceColourNameOptions = ["purple", "cyan", "green", "orange", "red", "pink", "ivory", "yellow"];
+const diceColourNameOptions = ["purple", "blue", "green", "orange", "red", "pink", "ivory", "yellow"];
 
 
 for (let btn of chooseScoreBtnOptions) btn.style.display = "none";
