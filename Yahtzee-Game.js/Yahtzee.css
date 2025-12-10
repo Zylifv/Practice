@@ -245,27 +245,27 @@ h2 {
 
 .dice-face-5 > span:nth-of-type(1) {
   display: flex;
-  margin: 5px 0px 0px 5px;;
+  margin: 8px 0px 0px 6px;
 }
   
 .dice-face-5 > span:nth-of-type(2) {
   display: flex;
-  margin: 5px 0px 0px 20px;
+  margin: 1px 0px 0px 20px;
 }
 
 .dice-face-5 > span:nth-of-type(3) {
   display: flex;
-  margin: 5px 0px 5px 4px;
+  margin: 2px 0px 3px 6px;
 }
 
 .dice-face-5 > span:nth-of-type(4) {
   display: flex;
-  margin: -45px 0px 0px 35px;
+  margin: -40px 0px 0px 34px;
 }
 
 .dice-face-5 > span:nth-of-type(5) {
   display: flex;
-  margin: -15px 0px 0px 35px;
+  margin: -16px 0px 0px 34px;
 }
 
 .dot {
@@ -313,11 +313,11 @@ h2 {
 }
 
 .purple-background {
-  background-color: #A9BCFF;
+  background-color: #C9A0DC/*#A9BCFF*/;
 }
 
-.cyan-background {
-  background-color: #A7C7E7;
+.blue-background {
+  background-color: #A9BCFF/*#A7C7E7*/;
 }
 
 .green-background {
