@@ -27,20 +27,26 @@ function rollTheDice() { //implemented "DRY" when assigning values to the dice, 
    playerDice.forEach((dice) => {
      if (dice.style.disabled !== true)
      {
+       dice.innerHTML = ""; //resets the dots in each die for each roll
        let i = 0;
        do {
          dice.classList.contains(`dice-face-${i}`) ? dice.classList.remove(`dice-face-${i}`) : i += 1; //stops dice from having more than one 'dice-face-n' and interfering with the CSS
         } while (i <= 6);
   
         dice.value = randomRoll(dice);
+        dice.classList.add(`dice-face-${dice.value}`);
+
+       let span = document.createElement("span");
+            span.classList.add("dot");
        
-        for (let d of diceFaces) {
-            if (dice.value === Number(d.id)) {
-              dice.classList.add(`dice-face-${dice.value}`);
-              dice.innerHTML = document.getElementById(`${dice.value}`).innerHTML;
-            }
-        }
-        dice.style.disabled = false;
+       let count = 0;
+        do {
+             dice.appendChild(span.cloneNode())
+             count++;
+            } while (count < dice.value);
+
+       dotCheck(dice);
+       dice.style.disabled = false;
      }
   });
 }
@@ -53,10 +59,46 @@ function randomDiceColour() {
   return diceColourNameOptions[Math.floor(Math.random() * diceColourNameOptions.length)] + "-background";
 }
 
-var superToggle = function(element, class0, class1) {
-             element.classList.toggle(class0);
-             element.classList.toggle(class1);
-          }
+function dotCheck(d) { //assigns the correct class to the dots based on the colour of the dice (dark dots on light coluored dice etc...)
+  
+  if (!d.classList.contains("ivory-background"))
+  {
+    let children = d.childNodes;
+
+    for (const el of children)
+    {
+      if (el.nodeName === "SPAN")
+      {
+        el.classList.add("dot");
+        el.classList.remove("dot-dark");
+      } else {return};
+    }
+  }
+  else if (d.classList.contains("ivory-background"))
+  {
+    let children = d.childNodes;
+    
+    for (const el of children)
+    {
+      if (el.nodeName === "SPAN")
+      {
+        el.classList.add("dot-dark");
+        el.classList.remove("dot");
+        if (d.value === 4)
+        {
+          el.style.backgroundColor = "#e33051";
+          el.classList.add("red-shadow");
+        }
+        else if (d.value === 1)
+        {
+          el.classList.add("red-one");
+          el.style.backgroundColor = "#e33051";
+        }
+      } else {return};
+    }
+  }
+};
+
 
 startBtn.addEventListener("click", () => {
   reset();
@@ -65,14 +107,13 @@ startBtn.addEventListener("click", () => {
      playerDice.forEach((dice) => {
        dice.style.disabled = false;
        dice.style["boxShadow"] = "";
-       //dice.style.backgroundColor = randDiceCol[Math.floor(Math.random() * randDiceCol.length)];
+       dice.classList.remove("red-shadow");
        for (let i = 0; i < diceColourNameOptions.length; i++) {
          dice.classList.contains(`${diceColourNameOptions[i]}-background`) ? dice.classList.remove(`${diceColourNameOptions[i]}-background`) : "";
        }
-       
        dice.classList.add(randomDiceColour());
-       
      });
+      
      rollTheDice();
      startBtn.disabled = true;
      rollDice.disabled = false;
@@ -89,7 +130,7 @@ startBtn.addEventListener("click", () => {
         document.getElementById("current-score-needed").textContent = "";
         document.getElementById("remaining-turns-left").textContent = "";
       }
-})
+});
 
 
 rerollCounter === 0 ? rollDice.disabled = true : rollDice.disabled = false;
