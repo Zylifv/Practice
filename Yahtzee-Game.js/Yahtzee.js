@@ -150,9 +150,22 @@ rollDice.addEventListener("click", () => {
 //improved visibility for players to see what dice have already been locked in
 playerDice.forEach((dice) => {
   dice.addEventListener("click", () => {
-    currentDice.push(dice.value);
-    dice.style["boxShadow"] = "0 0 20px var(--gold)";
-    dice.style.disabled = true;
+    if (!dice.style.disabled)
+    {
+      currentDice.push(dice.value);
+      dice.style["boxShadow"] = "0 0 20px var(--gold)";
+      dice.style.disabled = true;
+    }
+    else
+    {
+      const idx = currentDice.indexOf(dice.value);
+      if (idx > -1)
+      {
+        currentDice.splice(idx, 1);
+      }
+      dice.style["boxShadow"] = "";
+      dice.style.disabled = false;
+    }
   })
 });
 
