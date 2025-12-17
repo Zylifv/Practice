@@ -27,8 +27,7 @@ void Calculator()
 		result = 0;
 	}
 			
-	Console.WriteLine($"{num1} {operand} {num2} = ");
-	Console.WriteLine($"Result: {result}\n");
+	Console.WriteLine($"{num1} {operand} {num2} = {result}\n");
 			
 	Calculator();
 }
