@@ -1,0 +1,62 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #282828;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.stock-display-container {
+    width: 200px;
+    margin: 2em auto;
+    padding: 1em;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    background-color: white;
+}
+
+img {
+    max-width: 15px;
+    margin-left: 5px;
+}
+
+#price {
+  margin: auto;
+  position: absolute;
+  display: inline;
+  margin-left: 5px;
+}
+
+#price-icon {
+  margin: auto;
+  position: absolute;
+  display: inline;
+  margin-left: 50px;
+}
+
+.triangle-up {
+  margin: auto;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 20px solid green;
+}
+
+.triangle-down {
+  margin: auto;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 20px solid red;
+}
+
+.triangle-right {
+	width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-left: 20px solid #555;
+	border-bottom: 10px solid transparent;
+}
