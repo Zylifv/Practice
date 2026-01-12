@@ -9,9 +9,13 @@
   <h1>Fraction to Decimal Converter</h1>
     <div id="sig">- By R McGregor</div>
     <div id="fraction-box">
-       <input id="numerator" />
+       <input id="numerator" 
+              type="number"
+              min="0.01" />
           <div id="fraction-line"></div>
-          <input id="denominator" />
+          <input id="denominator" 
+                 type="number"
+                  min="0.01" />
               <button id="convert-btn" onclick="returnDecimal(numerator.value, denominator.value)">Convert to decimal</button>
     </div>
 
