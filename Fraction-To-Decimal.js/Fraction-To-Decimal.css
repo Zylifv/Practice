@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+body {
+  font-family: 'Source Sans Pro';
+  margin: auto;
+  width: 600px;
+  background-color: #1e2d2f;
+}
+
+h1 {
+  margin: auto;
+  margin-top: 10px;
+  text-align: center;
+  color: #f4f4f4;
+}
+
+#fraction-box {
+  margin: auto;
+  margin-top: 30px;
+  width: 180px;
+  display: grid;
+  align-items: center;
+}
+
+#fraction-box > input {
+  height: 130px;
+  width: 180px;
+  border-radius: 5px;
+  border: 2px solid #fbfefb;
+  text-align: center;
+  font-size: 3em;
+  color: #1e2d2f;
+}
+
+#fraction-line {
+  margin: auto;
+  width: 187px;
+  height: 5px;
+  background-color: #f4f4f4;
+  margin: 10px 0px 10px 0px;
+}
+
+#convert-btn {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  width: 188px;
+  height: 30px;
+  border: none;
+  background-color: #DDA853;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #fff;
+}
+
+#convert-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+
+#decimal-output {
+  margin: auto;
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  color: #f4f4f4;
+  width: 188px;
+}
+
+#sig {
+  color: #f4f4f4;
+  margin: auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 0.6em;
+  letter-spacing: 0.25em;
+  margin-top: 5px;
+  height: 40px;
+  font-size: 0.7em;
+}
