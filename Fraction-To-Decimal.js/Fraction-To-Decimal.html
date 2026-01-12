@@ -1,0 +1,21 @@
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+      <link href="styles.css" rel="stylesheet">
+      <title>Fraction to Decimal</title>
+    </head>
+<body>
+  <h1>Fraction to Decimal Converter</h1>
+    <div id="sig">- By R McGregor</div>
+    <div id="fraction-box">
+       <input id="numerator" />
+          <div id="fraction-line"></div>
+          <input id="denominator" />
+              <button id="convert-btn" onclick="returnDecimal(numerator.value, denominator.value)">Convert to decimal</button>
+    </div>
+
+    <div id="decimal-output"></div>
+  <script src="script.js"></script>
+</body>
+</html>
