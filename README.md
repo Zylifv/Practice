@@ -4,4 +4,4 @@ The 'Practice' folder will contain any and all examples of modules/tests/labs i 
 I intend to look back on where i have improved and what skills i have learnt from the start of my journey.
 My main goal is to show that i have improved not only the speed on my soluions to problems but also the readability and maintainabiltiy of my code.
 
-This repository will contain mostly Javascript, Typescript and C# code and those are the languages i am learning currently, but the folder will also contain small amounts of HTML and CSS for presentation purposes on larger projects.
+This repository will contain mostly Javascript/Typescript and C# code as well as some SQL/.NET markdown as those are the languages/frameworks i am currently learning. The folder will also contain small amounts of HTML and CSS for presentation purposes on larger projects and links to any projects i think are work checking out in their entirety.
