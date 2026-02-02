@@ -4,10 +4,10 @@
 //Complete the function so that the character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating 2D array.
 
 
-function pairElement(str) {
+function pairElement(str : string) {
   let newArr = [];
 
-  for (let i = 0; i < str.length; i++) {
+  for (let i : number = 0; i < str.length; i++) {
     switch(str[i]) {
       case "A":
         newArr.push(["A", "T"]);
