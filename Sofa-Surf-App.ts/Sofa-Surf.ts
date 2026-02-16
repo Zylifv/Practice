@@ -1,14 +1,18 @@
-const myBasket = document.getElementById("basket");
-const currentBasket = document.getElementById("current-basket");
-const currentLocation = document.getElementById("current-location");
-const hideLocationBtn = document.getElementById("hide-curr-location");
+const myBasket = document.getElementById("basket") as HTMLAnchorElement;
+const currentBasket = document.getElementById("current-basket") as HTMLDivElement;
+const currentLocation = document.getElementById("current-location") as HTMLDivElement;
+const hideLocationBtn = document.getElementById("hide-curr-location") as HTMLButtonElement;
+const formSubmitBtn = document.getElementById("form-submit") as HTMLButtonElement;
+const reviewsTotalDisplay = document.getElementById("reviews") as HTMLDivElement;
+const propertyDisplay = document.getElementById("property-page") as HTMLDivElement;
+const currLocationInfo = document.getElementById("current-location") as HTMLDivElement;
 const time = new Date().toLocaleTimeString();
 
 currentBasket.style.display = "none";
 
 console.log(window.innerWidth);
 
-document.getElementById("form-submit").addEventListener("click", (e) => {
+formSubmitBtn.addEventListener("click", (e) => {
    e.preventDefault()
 });
 
@@ -24,7 +28,6 @@ const properties : {
   }
   contact : [number, string];
   isAvailable : boolean;
-  array : string[];
 }[] = [
     {
       image: "https://media.istockphoto.com/id/471826199/photo/french-brittany-typical-house.jpg?s=612x612&w=0&k=20&c=Izy6Ms8WytO21jJ2gtuUlylIDl38TMgZYcFZTncFAcM=",
@@ -67,10 +70,6 @@ const properties : {
     }
 ];
 
-console.log(properties[0].array);
-
-const reviewsTotalDisplay = document.getElementById("reviews");
-
 enum UserLoyaltyLevel {
   GOLD_USER,
   SILVER_USER,
@@ -83,7 +82,7 @@ const reviews : {
   loyaltyUser : UserLoyaltyLevel;
   date : string;
   
-} = [
+}[] = [
     {
         name: 'Sheia',
         stars: 5,
@@ -111,7 +110,7 @@ const reviews : {
   {
         name: 'Ottilie',
         stars: 4.9,
-        loyaltyUser: UserLoyaltyLevel.GOLD_USER,
+        loyaltyUser: UserLoyaltyLevel.SILVER_USER,
         date: '23-06-2024'
     },
 ]
@@ -119,6 +118,7 @@ const reviews : {
 function numOfReviews(value : number, reviewer : string, stars : number, loyalty : UserLoyaltyLevel) {
   
    const loyaltyCheck = loyalty == UserLoyaltyLevel.GOLD_USER ? " | ⭐ - Verified user" : "";
+  
    reviewsTotalDisplay.innerHTML = "Reviews: " + value.toString() + " | Last reviewed by: " + reviewer;
    reviewsTotalDisplay.innerHTML += `<br> ${reviewer} rated ${stars} stars! ${loyaltyCheck}`
 }
@@ -151,8 +151,6 @@ document.addEventListener("click", (e) => {
   currentBasket.style.color = "#424548";
 })
 
-
-const propertyDisplay = document.getElementById("property-page");
 
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div');
@@ -188,13 +186,12 @@ Current Temperature in ${currLocationData[0]}: ${currLocationData[2]}°C`
 
 
 function toggleLocationData() {
-  let x = document.getElementById("current-location");
-  if (x.style.display === "none") {
-    x.style.display = "block";
+  if (currLocationInfo.style.display === "none") {
+    currLocationInfo.style.display = "block";
     hideLocationBtn.textContent = "X";
     hideLocationBtn.style.fontSize = "0.9em";
   } else {
-    x.style.display = "none";
+    currLocationInfo.style.display = "none";
     hideLocationBtn.textContent = "^";
     hideLocationBtn.style.fontSize = "1.2em";
   } 
