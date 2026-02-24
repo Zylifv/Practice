@@ -1,3 +1,5 @@
+![bank-app-example](bank-appPNG.png)
+
 I wanted to make a small functioning app with the logic I used to pass a challenge around monetary values.
 
 The app is basic but has all of the features you would need to check balances, see transaction history, deposit and withdraw etc.
