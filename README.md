@@ -5,3 +5,5 @@ I intend to look back on where i have improved and what skills i have learnt fro
 My main goal is to show that i have improved not only the speed on my soluions to problems but also the readability and maintainabiltiy of my code.
 
 This repository will contain mostly Javascript/Typescript and C# code as well as some SQL/.NET markdown as those are the languages/frameworks i am currently learning. The folder will also contain small amounts of HTML and CSS for presentation purposes on larger projects and links to any projects i think are work checking out in their entirety.
+
+Sometimes i decide to move projects in and out of the practice folder mainly dependingvon whether or not the project evolves past just practice or if the project is too similar to another.
