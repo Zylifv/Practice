@@ -6,6 +6,7 @@ class LinkedList {
   }
   
   append(val) {
+    //if list is empty
     if (!this.tail) {
       this.head = this.tail = new Node(val)
     } else {
@@ -17,6 +18,7 @@ class LinkedList {
   }
   
   prepend(val) {
+    //if list is empty
     if (!this.head) {
       this.head = this.tail = new Node(val)
     } else {
@@ -25,6 +27,52 @@ class LinkedList {
       oldHead.next = this.head;
       this.head.prev = oldHead
     }
+  }
+  
+  deleteHead() {
+    //if list is empty
+    if (!this.head) {
+      return null;
+    } else {
+      let removedHead = this.head;
+      //if 1 node left
+      if (this.head === this.tail) {
+        this.head = this.tail = null;
+      } else {
+        this.head = this.head.next;
+        this.head.prev = null;
+      }
+      return removedHead.value;
+    }
+  }
+  
+  deleteTail() {
+    //if list is empty
+    if (!this.tail) {
+      return null;
+    } else {
+      let removedTail = this.tail;
+      //if 1 node left
+      if (this.head === this.tail) {
+       this.head = this.tail = null; 
+      } else {
+        this.tail = this.tail.prev;
+        this.tail.next = null;
+      }
+      return removedTail.value
+    }
+  }
+  
+  search(value) {
+    let currentNode = this.head;
+    
+    while(currentNode) {
+      if (currentNode.value === value) {
+        return currentNode;
+      }
+      currentNode = currentNode.next;
+    }
+    return null;
   }
 }
 
