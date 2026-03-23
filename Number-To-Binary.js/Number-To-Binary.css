@@ -1,0 +1,105 @@
+@media only screen and (max-width: 767px) {
+  body {
+    margin: auto;
+    transform: scale(0.5);
+    max-width: 767px;
+  }
+  
+  #input, #check {
+    margin: auto;
+    position: absolute;
+    right: 22vw;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+body {
+  margin: 0;
+  auto: 0;
+  font-family: arial;
+  background-color: #233142;
+
+}
+
+h1, h2 {
+  margin: auto;
+  text-align: center;
+  margin: 10px;
+  color: #e3e3e3;
+}
+
+#wrapper {
+  margin: auto;
+  position: relative;
+  width: 600px;
+}
+
+#check {
+  margin: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e3e3e3;
+  background-color: #f95959;
+  width: 200px;
+  height: 40px;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-shadow: 1px 0 0 #233142, 0 -1px 0 #233142, 0 1px 0 #233142, -1px 0 0 #233142;
+}
+
+.main {
+  margin: auto;
+  width: 50%;
+  position: relative;
+  top: 50px;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(8, 100px);
+  grid-auto-rows: 50px;
+  text-align: center;
+  line-height: 50px;
+  color: #e3e3e3;
+  font-weight: bold;
+  
+}
+
+.main > div {
+  border: 1px solid black;
+  align-items: center;
+  border-radius: 2px;
+  background-color: #455d7a;
+}
+
+.bit {
+  background-color: #e3e3e3;
+}
+
+#input {
+  margin: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 190px;
+  height: 30px;
+  text-align: center;
+  font-size: 1.4em;
+}
+
+#sig {
+  margin: auto;
+  color: #e3e3e3;
+  position: relative;
+  top: 150px;
+  text-align: center;
+  font-size: 0.6em;
+  letter-spacing: 0.25em;
+  padding-top: 10px;
+  padding-bottom: 25px;
+}
