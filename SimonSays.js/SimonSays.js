@@ -60,6 +60,7 @@ function startGame() {
   if (startGameBool == false)
     {
       entry = false;
+      document.getElementsByClassName("btn").disabled = false;
       userResult.textContent = "";
       userResult.style.color = "#004445";
       startBtn.textContent = "Next level";
@@ -73,6 +74,7 @@ function startGame() {
       startGameBool == true;
       userNumSequence.length = 0;
       document.getElementById("start_game").style.display = "none";
+      for (const btns of buttons) {btns.disabled = false};
     }
 }
 
@@ -88,24 +90,26 @@ let buttonClick = function() {
   }
 }
 
-for (let i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener("click", buttonClick);
+if (!buttons.disabled) {
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", buttonClick);
+  }
 }
 
 
 function winOrLose() {
   let winCondition = false;
+  document.getElementsByClassName("btn").disabled = true;
   for (let i = 0; i < currLevelSequence.length; i++)
     {
     userNumSequence[i] === currLevelSequence[i] ? winCondition = true : winCondition = false;
-      
-      //console.log(winCondition, currLevelSequence.length);
     }
   if (winCondition && count <= currLevelSequence.length)
     {
       gameSequence.textContent = "You Win!";
       userResult.style.color = "#33a366";
       currLevel++;
+      for (const btns of buttons) {btns.disabled = true};
     }
   else
     {
