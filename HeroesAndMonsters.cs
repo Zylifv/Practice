@@ -253,6 +253,9 @@
 							Console.WriteLine($"					Health: {currentHeroHealth}");
 							Console.WriteLine($"					Current Hero Attack: {currentHeroAttack}\n");					
 						}
+						
+						Console.WriteLine("Press the enter key to continue");
+						readResult = Console.ReadLine();
 					
 						do
 						{
@@ -266,6 +269,8 @@
 								currentBattleFinished = true;
 								break;
 							}
+							Console.WriteLine("Press the enter key to continue");
+							readResult = Console.ReadLine();
 							currentRoll = attack.Next(8, 11);
 							Console.WriteLine($"Current hero HP: {currentHeroHealthStat}\n");
 							currentDamage = ((currentRoll * currentMonsterAttackStat) / 10);
